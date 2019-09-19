@@ -1,0 +1,19 @@
+.itemsList {
+    list-style: none;
+    padding-left: 0;
+    width: 250px;
+}
+
+.itemsList li {
+    color: #333;
+    background-color: bisque;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    transition: background-color .2s ease-out;
+}
+
+.itemsList li:hover {
+    background-color: pink;
+    cursor: pointer;
+}

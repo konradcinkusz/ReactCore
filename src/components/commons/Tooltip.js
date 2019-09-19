@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
+import './Tooltip.css';
 
-export const RouteTooltip = ({ text, id }) =>
+export const Tooltip = ({ text, id }) =>
     <div className="col-1 center-block text-center">
         <ReactTooltip
             id={id}
