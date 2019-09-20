@@ -2,11 +2,10 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store/CombustionReport';
-import { FormErrors } from './FormErrors';
+import { FormErrors } from './commons/FormErrors';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import Items from './Items';
-import Polynomial from './Polynomial';
+import Items from './commons/Items';
 
 class CombustionReport extends Component {
   constructor(props) {
@@ -382,28 +381,6 @@ class CombustionReport extends Component {
                 delete={this.deleteItem}
               />
             </div>
-          </div>
-          <div className="col-md-8">
-            <Polynomial
-              entries={this.state.selectedCombustions.map(function(item) {
-                return { x: item.averageSpeed, y: item.averageCombusiton };
-              })}
-              order={3}
-              plotTitle="<b>Średnia prędkość do spalania</b>"
-              id={123}
-              carKey={selectedCarKey}
-              plotType="combustionSpeed"
-            />
-            <Polynomial
-              entries={this.state.selectedCombustions.map(function(item) {
-                return { x: item.routeKilometers, y: item.averageCombusiton };
-              })}
-              order={3}
-              plotTitle="<b>Średnia dł. trasy do spalania</b>"
-              id={456}
-              carKey={selectedCarKey}
-              plotType="combustionRoute"
-            />
           </div>
         </div>
       </div>

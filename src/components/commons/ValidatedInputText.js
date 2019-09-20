@@ -11,7 +11,6 @@ import { Tooltip } from './Tooltip';
  * placeholder -> podpowiedzi do inputa
  * name -> nazwa inputa (najlepiej unikalna)
  * entries -> jeżeli input dodaje coś do zbioru danych to wypełniamy entries
- * addItem -> wskaźnik do funkcji
  * inputTooltip -> Tekst do podpowiedzi w kółeczku informacyjnym po prawej stronie inputa
  * iconClassName -> Nazwa klasy ikonki do wyświetlenia po lewej stronie inputa
  */
@@ -28,43 +27,6 @@ class ValidatedInputText extends Component {
       inputElementValid: '',
       formValid: false
     };
-
-    this.addItem = this.addItem.bind(this);
-  }
-
-  addItem(e) {
-    var inputElement = this._inputElement.value;
-    if (inputElement === '') {
-      let fieldValidationErrors = this.state.formErrors;
-      fieldValidationErrors.inputElement = 'nie wypełnione.';
-      this.setState(
-        {
-          formErrors: fieldValidationErrors,
-          inputElementValid: false
-        },
-        this.validateForm
-      );
-    } else {
-      var itemToAdd = {
-        inputElement: inputElement,
-        key: Date.now()
-      };
-
-      this.props.addItem(itemToAdd);
-
-      this._inputElementName.value = '';
-
-      this.setState(
-        {
-          inputElement: ''
-        },
-        () => {
-          this.validateField('clean', value);
-        }
-      );
-    }
-
-    e.preventDefault();
   }
 
   // #region Funkcje walidacyjne
@@ -104,11 +66,29 @@ class ValidatedInputText extends Component {
         fieldValidationErrors.inputElement = inputElementValid
           ? ''
           : 'jest za krótkie (przynajmniej 3 znaki)!';
-        //Ciekawe co się stanie, jak się nie poda nic w ogóle
+
         if (
-          this.props.entries.filter(
-            data => data.names.toLowerCase() === value.toLowerCase()
-          ).length > 0
+          this.props.entries
+            .map(function(data) {
+              var dataPrepared = data.replace(' ', '').toLowerCase();
+              return value.split(' ').some(element => {
+                //Znajdź dokładnie to samo zdanie
+                //Find specific word // Find strictly word
+                //How should I write a regex to match a specific word?
+                //https://superuser.com/a/903175
+                return (
+                  (
+                    dataPrepared.match(
+                      new RegExp(
+                        `(?:^|\W)${element.toLowerCase()}(?:$|\W)`,
+                        'g'
+                      )
+                    ) || []
+                  ).length > 0
+                );
+              });
+            })
+            .some(entry => entry)
         ) {
           inputElementValid = false;
           fieldValidationErrors.inputElement =
@@ -146,29 +126,34 @@ class ValidatedInputText extends Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-1">
-          <i className={this.props.iconClassName} />
-        </div>
-        <div className="col-5">
-          <FormErrors />
-        </div>
-        <div className="col-5">
-          <input
-            name={this.props.name}
-            className={`form-control ${this.errorFuelTypeClass(
-              this.state.inputElementValid
-            )}`}
-            ref={a => (this._inputElement = a)}
-            placeholder={this.props.placeholder}
-            onChange={event => this.handleUserInput(event)}
-            onBlur={event => this.blurUserInput(event)}
+      <div className="container">
+        <div className="row">
+          <FormErrors
+            formErrors={this.state.formErrors}
+            friendlyNames={this.state.friendlyNames}
           />
         </div>
-        <Tooltip
-          id={`${this.props.name}Tooltip`}
-          text={this.props.inputTooltip}
-        />
+        <div className="row">
+          <div className="col-1">
+            <i className={this.props.iconClassName} />
+          </div>
+          <div className="col-10">
+            <input
+              name={this.props.name}
+              className={`form-control ${this.errorFuelTypeClass(
+                this.state.inputElementValid
+              )}`}
+              ref={a => (this._inputElement = a)}
+              placeholder={this.props.placeholder}
+              onChange={event => this.handleUserInput(event)}
+              onBlur={event => this.blurUserInput(event)}
+            />
+          </div>
+          <Tooltip
+            id={`${this.props.name}Tooltip`}
+            text={this.props.inputTooltip}
+          />
+        </div>
       </div>
     );
   }

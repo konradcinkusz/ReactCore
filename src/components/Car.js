@@ -2,10 +2,10 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store/Car';
-import { FormErrors } from './FormErrors';
+import { FormErrors } from './commons/FormErrors';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import Items from './Items';
+import Items from './commons/Items';
 import regression from 'regression';
 
 class Car extends Component {

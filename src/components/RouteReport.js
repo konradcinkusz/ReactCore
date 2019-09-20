@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { FormErrors } from './FormErrors';
+import { FormErrors } from './commons/FormErrors';
 import TextInput from 'react-autocomplete-input';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store/Route';
-import Items from './Items';
+import Items from './commons/Items';
 import './ListMain.css';
-import { RouteTooltip } from './RouteTooltip';
 
 class RouteReport extends Component {
   constructor(props) {
@@ -314,7 +313,6 @@ class RouteReport extends Component {
                     value={`${this.state.value}`}
                   />
                 </div>
-                <RouteTooltip id="routeName" text={routeNameTooltip} />
               </div>
               <div className="row">
                 <div className="col-1">
@@ -341,10 +339,6 @@ class RouteReport extends Component {
                     -
                   </button>
                 </div>
-                <RouteTooltip
-                  id="routeKilometers"
-                  text={routeKilometerTooltip}
-                />
               </div>
             </div>
             <button type="submit" disabled={!this.state.formValid}>

@@ -1,10 +1,10 @@
 ﻿import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Items from './Items';
+import Items from './commons/Items';
 import './ListMain.css';
 import { actionCreators } from '../store/Fuel';
-import { FormErrors } from './FormErrors';
+import { FormErrors } from './commons/FormErrors';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
