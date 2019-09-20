@@ -1,11 +1,11 @@
 ﻿import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { actionCreators } from '../store/CombustionReport';
-import { FormErrors } from './commons/FormErrors';
+import { actionCreators } from '../../store/examplesReducers/CombustionReport';
+import { FormErrors } from '../commons/FormErrors';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import Items from './commons/Items';
+import Items from '../commons/Items';
 
 class CombustionReport extends Component {
   constructor(props) {

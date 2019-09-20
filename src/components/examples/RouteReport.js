@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { FormErrors } from './commons/FormErrors';
+import { FormErrors } from '../commons/FormErrors';
 import TextInput from 'react-autocomplete-input';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store/Route';
-import Items from './commons/Items';
+import Items from '../commons/Items';
 import './ListMain.css';
 
 class RouteReport extends Component {
