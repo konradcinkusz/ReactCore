@@ -34,7 +34,7 @@ export default class NavMenu extends React.Component {
         >
           <Container>
             <NavbarBrand tag={Link} to="/">
-              Combustion reports App
+              ReactCore App (click: Deafult)
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} className="mr-2" />
             <Collapse
@@ -44,23 +44,17 @@ export default class NavMenu extends React.Component {
             >
               <ul className="navbar-nav flex-grow">
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/route">
-                    Route
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fuel">
-                    Fuel
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/car">
-                    Car
+                  <NavLink
+                    tag={Link}
+                    className="text-dark"
+                    to="/examples/ValidateInputTextExample"
+                  >
+                    ValidateInputTextExample
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/">
-                    CombustionReport
+                    Deafult
                   </NavLink>
                 </NavItem>
               </ul>
