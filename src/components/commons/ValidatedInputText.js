@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormErrors } from './FormErrors';
 import { Tooltip } from './Tooltip';
+import './Commons.css';
 
 /**
  * Generyczny komponent zawierający w sobie input wraz z logiką walidacyjną do wprowadzania tekstu
@@ -116,7 +117,7 @@ class ValidatedInputText extends Component {
     this.setState({ formValid: this.state.inputElementValid });
   }
 
-  errorFuelTypeClass(error) {
+  errorTypeClass(error) {
     if (typeof error === 'string' || typeof error === 'undefined') {
       return '';
     }
@@ -135,13 +136,15 @@ class ValidatedInputText extends Component {
         </div>
         <div className="row">
           <div className="col-1">
-            <i className={this.props.iconClassName} />
+            <div className="center">
+              <i className={this.props.iconClassName} />
+            </div>
           </div>
           <div className="col-10">
             <input
               type="text"
               name={this.props.name}
-              className={`form-control ${this.errorFuelTypeClass(
+              className={`form-control ${this.errorTypeClass(
                 this.state.inputElementValid
               )}`}
               ref={a => (this._inputElement = a)}

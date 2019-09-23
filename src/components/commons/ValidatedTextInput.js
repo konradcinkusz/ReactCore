@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormErrors } from './FormErrors';
 import { Tooltip } from './Tooltip';
 import TextInput from 'react-autocomplete-input';
+import './Commons.css';
 
 /**
  * Generyczny komponent zawierający w sobie input wraz z logiką walidacyjną do wprowadzania tekstu
@@ -73,6 +74,7 @@ class ValidateTextInput extends Component {
     } else {
       //to jest w wypadku wywołania funkcji onBlur
       textValue = this._inputElement.recentValue;
+      friendlyTextValue = '';
     }
 
     friendlyTextValue = friendlyTextValue.replace(/[0-9]|km/g, '');
@@ -128,7 +130,7 @@ class ValidateTextInput extends Component {
     this.setState({ formValid: this.state.inputElementValid });
   }
 
-  errorFuelTypeClass(error) {
+  errorTypeClass(error) {
     if (typeof error === 'string' || typeof error === 'undefined') {
       return '';
     }
@@ -147,12 +149,14 @@ class ValidateTextInput extends Component {
         </div>
         <div className="row">
           <div className="col-1">
-            <i className={this.props.iconClassName} />
+            <div className="center">
+              <i className={this.props.iconClassName} />
+            </div>
           </div>
           <div className="col-10">
             <TextInput
               name={this.props.name}
-              className={`form-control ${this.errorFuelTypeClass(
+              className={`form-control ${this.errorTypeClass(
                 this.state.inputElementValid
               )}`}
               ref={a => (this._inputElement = a)}
