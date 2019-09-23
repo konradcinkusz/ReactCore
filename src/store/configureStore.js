@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 
-import * as Fuel from './Fuel';
+import * as Fuel from './examplesReducers/Fuel';
 import * as Car from './examplesReducers/Car';
 import * as CombustionReport from './examplesReducers/CombustionReport';
 import * as RouteReport from './examplesReducers/Route';

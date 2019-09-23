@@ -139,6 +139,7 @@ class ValidatedInputText extends Component {
           </div>
           <div className="col-10">
             <input
+              type="text"
               name={this.props.name}
               className={`form-control ${this.errorFuelTypeClass(
                 this.state.inputElementValid
