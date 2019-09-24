@@ -4,6 +4,7 @@
   padding: 0;
   font: normal 16px/22px Arial;
   color: #999;
+  counter-reset: stepCount;
 }
 .circleListV li {
   overflow: hidden;
@@ -19,6 +20,8 @@
   height: 999px;
   border: 2px solid lightblue;
   border-width: 2px 0 0 2px;
+  counter-increment: stepCount;
+  content: counter(stepCount);
 }
 .circleListV li:last-child::before {
   border-width: 2px 0 0;

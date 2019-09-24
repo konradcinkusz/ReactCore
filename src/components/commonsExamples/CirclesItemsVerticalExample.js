@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import CirclesItemsVertical from '../commons/CirclesItemsVertical';
+import Collapsible from 'react-collapsible';
 
 class CirclesItemsVerticalExample extends Component {
   constructor(props) {
     super(props);
-
+    this.ClickItem = this.ClickItem.bind(this);
     this.state = {
       entries: [
         {
           key: 111,
-          icon: <i className="fas fa-graduation-cap" />,
+          icon: (
+            <button className="buttons" onClick={() => this.ClickItem(111)}>
+              <i className="fas fa-graduation-cap" />
+            </button>
+          ),
           additionalOptions: (
-            <div>
-              Step #4
-              <br />
-              <small>
-                <i>Description of the step</i>
-              </small>
-            </div>
+            <Collapsible ref={a => (this._inputElementName = a)}>
+              <div>
+                Step #4
+                <br />
+                <small>
+                  <i>Description of the step</i>
+                </small>
+              </div>
+            </Collapsible>
           )
         },
         {
@@ -40,6 +47,17 @@ class CirclesItemsVerticalExample extends Component {
         { key: 777, icon: <i className="far fa-envelope" /> }
       ]
     };
+  }
+
+  ClickItem(event) {
+    if (event === 111) {
+      var input = this._inputElementName;
+      if (input.state.isClosed) {
+        input.openCollapsible();
+      } else {
+        input.closeCollapsible();
+      }
+    }
   }
 
   render() {
