@@ -5,6 +5,7 @@ import ValidateTextInputExample from './components/commonsExamples/ValidateTextI
 import ValidateInputTextExample from './components/commonsExamples/ValidateInputTextExample';
 import Default from './Default';
 import ContainerExample from './components/commonsExamples/ContainerExample';
+import CirclesItemsExample from './components/commonsExamples/CirclesItemsExample';
 
 export default () => (
   <Layout>
@@ -17,6 +18,10 @@ export default () => (
       component={ValidateTextInputExample}
     />
     <Route path="/examples/ContainerExample" component={ContainerExample} />
+    <Route
+      path="/examples/CirclesItemsExample"
+      component={CirclesItemsExample}
+    />
     <Route exact path="/" component={Default} />
   </Layout>
 );

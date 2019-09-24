@@ -1,0 +1,39 @@
+.circleList li {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  border-radius: 1em;
+  background: dodgerblue;
+  margin: 0 1em;
+  display: inline-block;
+  color: white;
+  position: relative;
+}
+
+.circleList li::before {
+  content: '';
+  position: absolute;
+  top: 0.9em;
+  left: -4em;
+  width: 4em;
+  height: 0.2em;
+  background: dodgerblue;
+  z-index: -1;
+}
+
+.circleList li:first-child::before {
+  display: none;
+}
+
+.circleList .active {
+  background: dodgerblue;
+}
+
+.circleList .active ~ li {
+  background: lightblue;
+}
+
+.circleList .active ~ li::before {
+  background: lightblue;
+}
