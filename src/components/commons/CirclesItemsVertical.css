@@ -1,0 +1,51 @@
+.InternalUL ul {
+  list-style: none;
+  margin: 50px;
+  padding: 0;
+  font: normal 16px/22px Arial;
+  color: #999;
+}
+.circleListV li {
+  overflow: hidden;
+  position: relative;
+  padding: 0 0 10px 35px;
+}
+.circleListV li::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 9px;
+  width: 20px;
+  height: 999px;
+  border: 2px solid lightblue;
+  border-width: 2px 0 0 2px;
+}
+.circleListV li:last-child::before {
+  border-width: 2px 0 0;
+}
+.circleListV li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 2px solid lightblue;
+  border-radius: 50%;
+}
+.circleListV li.current,
+.circleListV li.passed {
+  color: #000;
+}
+.circleListV li.current::before {
+  border-top-color: dodgerblue;
+}
+.circleListV li.current::after {
+  border-color: dodgerblue;
+  background: dodgerblue;
+}
+.circleListV li.passed::before,
+.circleListV li.passed::after {
+  border-color: dodgerblue;
+}

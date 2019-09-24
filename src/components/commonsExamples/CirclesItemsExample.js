@@ -19,11 +19,7 @@ class CirclesItemsExample extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <CirclesItems entries={this.state.entries} />
-      </div>
-    );
+    return <CirclesItems entries={this.state.entries} />;
   }
 }
 

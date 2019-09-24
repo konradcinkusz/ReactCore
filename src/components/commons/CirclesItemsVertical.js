@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import FlipMove from 'react-flip-move';
 import { isEqual } from 'lodash';
-import './CirclesItems.css';
+import './CirclesItemsVertical.css';
 
 /*
  *https://codepen.io/ccondrup/pen/bqbGWB?editors=1100
  *https://codepen.io/bookcasey/pen/cEntL
  */
-class CirclesItems extends Component {
+class CirclesItemsVertical extends Component {
   constructor(props) {
     super(props);
 
@@ -17,11 +17,14 @@ class CirclesItems extends Component {
   createTask(item) {
     var isActive = '';
     if (item.key === 333) {
-      isActive = 'active';
+      isActive = 'current';
+    } else if (item.key < 333) {
+      isActive = 'passed';
     }
     return (
       <li key={item.key} className={isActive}>
         {item.icon}
+        {item.additionalOptions}
       </li>
     );
   }
@@ -34,13 +37,15 @@ class CirclesItems extends Component {
     var todoEntries = this.props.entries;
     var listItems = todoEntries.map(this.createTask);
     return (
-      <ul className="circleList">
-        <FlipMove duration={250} easing="ease-out">
-          {listItems}
-        </FlipMove>
-      </ul>
+      <div className="InternalUL">
+        <ul className="circleListV">
+          <FlipMove duration={250} easing="ease-out">
+            {listItems}
+          </FlipMove>
+        </ul>
+      </div>
     );
   }
 }
 
-export default CirclesItems;
+export default CirclesItemsVertical;
