@@ -149,7 +149,7 @@ class ValidateTextInput extends Component {
         </div>
         <div className="row">
           <div className="col-1">
-            <div className="center">
+            <div className="center textColor">
               <i className={this.props.iconClassName} />
             </div>
           </div>
