@@ -9,6 +9,7 @@
   display: inline-block;
   color: white;
   position: relative;
+  font-size: 48px;
 }
 
 .circleList li::before {
@@ -36,4 +37,12 @@
 
 .circleList .active ~ li::before {
   background: lightblue;
+}
+
+.circleList li p {
+  color: black;
+  overflow-wrap: break-word;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
 }

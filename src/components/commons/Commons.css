@@ -28,3 +28,7 @@
 .center .far {
   color: lightblue;
 }
+
+.isHover {
+  background-color: #f45b69;
+}

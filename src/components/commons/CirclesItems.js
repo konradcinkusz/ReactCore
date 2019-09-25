@@ -16,12 +16,19 @@ class CirclesItems extends Component {
 
   createTask(item) {
     var isActive = '';
-    if (item.key === 333) {
-      isActive = 'active';
+    // if (item.key === 333) {
+    //   isActive = 'active';
+    // }
+
+    var description = 'Example';
+    if (typeof item.description !== 'undefined') {
+      description = item.description;
     }
+
     return (
       <li key={item.key} className={isActive}>
         {item.icon}
+        <p>{description}</p>
       </li>
     );
   }

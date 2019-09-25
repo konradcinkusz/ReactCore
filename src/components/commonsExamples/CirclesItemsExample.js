@@ -7,7 +7,11 @@ class CirclesItemsExample extends Component {
 
     this.state = {
       entries: [
-        { key: 111, icon: <i className="fas fa-graduation-cap" /> },
+        {
+          key: 111,
+          icon: <i className="fas fa-graduation-cap" />,
+          description: <i className="fas fa-graduation-cap"> grades</i>
+        },
         { key: 222, icon: <i className="fas fa-laptop-code" /> },
         { key: 333, icon: <i className="fas fa-globe-americas" /> },
         { key: 444, icon: <i className="fas fa-republican" /> },

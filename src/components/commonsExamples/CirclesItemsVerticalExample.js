@@ -12,12 +12,16 @@ class CirclesItemsVerticalExample extends Component {
         {
           key: 111,
           icon: (
-            <button className="buttons" onClick={() => this.ClickItem(111)}>
+            <button
+              className="buttons"
+              onClick={() => this.ClickItem(111)}
+              ref={a => (this._buttonEducationStep = a)}
+            >
               <i className="fas fa-graduation-cap" />
             </button>
           ),
           additionalOptions: (
-            <Collapsible ref={a => (this._inputElementName = a)}>
+            <Collapsible ref={a => (this._collapsibleEducationStep = a)}>
               <div>
                 Education
                 <br />
@@ -33,35 +37,31 @@ class CirclesItemsVerticalExample extends Component {
                       </center>
                     </p>
                     <p>
-                      2005 volkswagen jetta 2.5 for sale has 110,000 miles
-                      powere doors,power windows,has ,car drives excellent
-                      ,comes with warranty if you&#39;re ...
+                      I graduated secondary school in maths and physics
+                      specialization
                     </p>
                   </div>
                   <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Secondary Education</h3>
+                    <h3>Higher Education</h3>
                     <p>
                       <center>
                         <img src={require('./logotype_polibuda.jpg')} />
                       </center>
                     </p>
                     <p>
-                      2005 volkswagen jetta 2.5 for sale has 110,000 miles
-                      powere doors,power windows,has ,car drives excellent
-                      ,comes with warranty if you&#39;re ...
+                      Technical University of Lodz, Diploma in Computer Science
                     </p>
                   </div>
                   <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Secondary Education</h3>
+                    <h3>Specialization</h3>
                     <p>
                       <center>
                         <img src={require('./logo_weeia.png')} />
                       </center>
                     </p>
                     <p>
-                      2005 volkswagen jetta 2.5 for sale has 110,000 miles
-                      powere doors,power windows,has ,car drives excellent
-                      ,comes with warranty if you&#39;re ...
+                      Department of electronics; Institute of Applied Computer
+                      Science; Computer Science;
                     </p>
                   </div>
                 </div>
@@ -72,12 +72,17 @@ class CirclesItemsVerticalExample extends Component {
         {
           key: 222,
           icon: (
-            <button className="buttons" onClick={() => this.ClickItem(222)}>
+            // className={`${this.errorFuelTypeClass(this.state.carFuelDropDownValid)}`}
+            <button
+              className="buttons"
+              onClick={() => this.ClickItem(222)}
+              ref={a => (this._buttonExperienceStep = a)}
+            >
               <i className="fas fa-laptop-code" />
             </button>
           ),
           additionalOptions: (
-            <Collapsible ref={a => (this._inputElementStep2 = a)}>
+            <Collapsible ref={a => (this._collapsibleExperienceStep = a)}>
               <div>
                 Experience
                 <br />
@@ -87,92 +92,91 @@ class CirclesItemsVerticalExample extends Component {
               </div>
               <div className="row">
                 <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>
-                    2005 Volkswagen Jetta 2.5 Sedan (worcester
-                    http://www.massmotorcars.com) $6900
-                  </h3>
+                  <h3>Programmer mid. lvl</h3>
                   <p>
                     <center>
-                      <img src={require('./patron.jpg')} />
+                      <img src={require('./experience/tme.png')} />
                     </center>
                   </p>
                   <p>
                     <small>
-                      2005 volkswagen jetta 2.5 for sale has 110,000 miles
-                      powere doors,power windows,has ,car drives excellent
-                      ,comes with warranty if you&#39;re ...
+                      I am working as a programmer in TME in .NET technology
                     </small>
                   </p>
                   <p>
                     <a
                       className="btn btn-default"
-                      href="/search/1355/detail/"
+                      href="https://www.tme.eu/pl/"
                       role="button"
                     >
-                      View details &raquo;
+                      View TME site &raquo;
                     </a>
-                    <button type="button" className="btn bookmark" id="1355">
-                      <span
-                        className="
-                  glyphicon glyphicon-star-empty "
-                      ></span>
-                    </button>
                   </p>
                 </div>
                 <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>
-                    2006 Honda Civic EX Sedan (Worcester www.massmotorcars.com)
-                    $7950
-                  </h3>
+                  <h3>Programmer mid./jun. lvl</h3>
                   <p>
-                    <small>
-                      2006 honda civic ex has 110,176 miles, has power doors
-                      ,power windows,sun roof,alloy wheels,runs great, cd
-                      player, 4 cylinder engen, ...
-                    </small>
+                    <center>
+                      <img src={require('./experience/Fabrity.jpg')} />
+                    </center>
+                  </p>
+                  <p>
+                    <small>I am working in Fabrity as a programmer</small>
                   </p>
                   <p>
                     <a
                       className="btn btn-default"
-                      href="/search/1356/detail/"
+                      href="https://www.fabrity.pl/"
                       role="button"
                     >
-                      View details &raquo;
+                      View Fabrity site &raquo;
                     </a>
-                    <button type="button" className="btn bookmark" id="1356">
-                      <span
-                        className="
-                  glyphicon glyphicon-star-empty "
-                      ></span>
-                    </button>
                   </p>
                 </div>
                 <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>
-                    2004 Honda Civic LX Sedan (worcester www.massmotorcars.com)
-                    $5900
-                  </h3>
+                  <h3>Intern</h3>
+                  <p>
+                    <center>
+                      <img src={require('./experience/oracle-logo.png')} />
+                    </center>
+                  </p>
                   <p>
                     <small>
-                      2004 honda civic lx sedan has 134,000 miles, great looking
-                      car, interior and exterior looks nice,has cd player, power
-                      windows ...
+                      I have an internship in Oracle Polska. I do things with
+                      Oracle Mobile Application Framework
                     </small>
                   </p>
                   <p>
                     <a
                       className="btn btn-default"
-                      href="/search/1357/detail/"
+                      href="https://www.oracle.com/pl/index.html"
                       role="button"
                     >
-                      View details &raquo;
+                      View Oracle Polska site &raquo;
                     </a>
-                    <button type="button" className="btn bookmark" id="1357">
-                      <span
-                        className="
-                  glyphicon glyphicon-star-empty "
-                      ></span>
-                    </button>
+                  </p>
+                </div>
+                <div className="col-6 col-sm-6 col-lg-4">
+                  <h3>IT maintenance and Sales</h3>
+                  <p>
+                    <center>
+                      <img src={require('./experience/satserwis-logo.png')} />
+                    </center>
+                  </p>
+                  <p>
+                    <small>
+                      In family buissness I worked in site maintenance and as a
+                      Sales Support
+                    </small>
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-default"
+                      href="https://sklep.saterwis.pl"
+                      role="button"
+                    >
+                      View Sat-Serwis site &raquo;
+                    </a>
                   </p>
                 </div>
               </div>
@@ -193,27 +197,33 @@ class CirclesItemsVerticalExample extends Component {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
   };
 
-  doSomething = async () => {
-    await this.sleep(1000);
+  expandCollapsibles = async () => {
+    await this.sleep(100);
     var input = [];
-    input.push(this._inputElementName);
-    input.push(this._inputElementStep2);
+    input.push({
+      btn: this._buttonEducationStep,
+      value: this._collapsibleEducationStep
+    });
+    input.push({
+      btn: this._buttonExperienceStep,
+      value: this._collapsibleExperienceStep
+    });
+
     for (var i = 0; i < input.length; i++) {
-      if (input[i].state.isClosed) {
-        input[i].openCollapsible();
-      } else {
-        input[i].closeCollapsible();
+      input[i].btn.className = input[i].btn.className + ' isHover';
+      if (input[i].value.state.isClosed) {
+        input[i].value.openCollapsible();
       }
       await this.sleep(370);
+      input[i].btn.className = 'buttons';
     }
-    //do stuff
   };
 
   //Get scroll position with Reactjs
   //https://stackoverflow.com/a/53158893/5493318
   componentDidMount() {
     window.addEventListener('scroll', this.listenToScroll);
-    this.doSomething();
+    this.expandCollapsibles();
   }
 
   componentWillUnmount() {
@@ -236,14 +246,14 @@ class CirclesItemsVerticalExample extends Component {
 
   ClickItem(event) {
     if (event === 111) {
-      var input = this._inputElementName;
+      var input = this._collapsibleEducationStep;
       if (input.state.isClosed) {
         input.openCollapsible();
       } else {
         input.closeCollapsible();
       }
     } else if (event === 222) {
-      var input = this._inputElementStep2;
+      var input = this._collapsibleExperienceStep;
       if (input.state.isClosed) {
         input.openCollapsible();
       } else {
@@ -253,7 +263,11 @@ class CirclesItemsVerticalExample extends Component {
   }
 
   render() {
-    return <CirclesItemsVertical entries={this.state.entries} />;
+    return (
+      <div>
+        <CirclesItemsVertical entries={this.state.entries} />
+      </div>
+    );
   }
 }
 
