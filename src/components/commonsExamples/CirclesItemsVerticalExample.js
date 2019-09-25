@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CirclesItemsVertical from '../commons/CirclesItemsVertical';
 import Collapsible from 'react-collapsible';
 import './CirclesItemsVerticalExample.css';
+import CirclesItemsCounterExample from './CirclesItemsCounterExample';
 
 class CirclesItemsVerticalExample extends Component {
   constructor(props) {
@@ -393,6 +394,29 @@ class CirclesItemsVerticalExample extends Component {
   render() {
     return (
       <div>
+        <div className="row collapsible">
+          <div className="col-6 col-sm-6 col-lg-4">
+            <h3>Konrad Cinkusz</h3>
+            <p>
+              <center>
+                <img className="mainPhoto" src={require('./myPhoto.png')} />
+              </center>
+            </p>
+            <span>
+              <center>Software Engineer</center>
+            </span>
+          </div>
+          <div className="col-6 col-sm-6 col-lg-4">
+            <p>
+              I am software engineer with at least 4 years experience in
+              commercial programming. I worked at bank, military and warehouse
+              sectors. I am programming in C# languages and developing my
+              abilities in .Net platform. I was studying computer science in
+              Technical University at Lodz and graduated with engineer degree.
+            </p>
+          </div>
+        </div>
+        <CirclesItemsCounterExample />
         <CirclesItemsVertical entries={this.state.entries} />
       </div>
     );

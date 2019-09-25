@@ -5,3 +5,14 @@
 .collapsible p {
   text-align: justify;
 }
+
+.collapsible span {
+  text-align: justify;
+  font-weight: bold;
+  color: rgb(255, 154, 38);
+}
+
+.collapsible .mainPhoto {
+  border: 1px solid rgb(255, 154, 38);
+  border-radius: 25%;
+}
