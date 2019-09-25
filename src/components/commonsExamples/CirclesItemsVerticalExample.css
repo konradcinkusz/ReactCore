@@ -1,7 +1,7 @@
-h3 {
+.collapsible h3 {
   overflow-wrap: break-word;
   text-align: center;
 }
-p {
+.collapsible p {
   text-align: justify;
 }

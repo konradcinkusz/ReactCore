@@ -22,7 +22,7 @@ class CirclesItemsVerticalExample extends Component {
           ),
           additionalOptions: (
             <Collapsible ref={a => (this._collapsibleEducationStep = a)}>
-              <div>
+              <div className="collapsible">
                 Education
                 <br />
                 <small>
@@ -83,107 +83,226 @@ class CirclesItemsVerticalExample extends Component {
           ),
           additionalOptions: (
             <Collapsible ref={a => (this._collapsibleExperienceStep = a)}>
-              <div>
+              <div className="collapsible">
                 Experience
                 <br />
                 <small>
                   <i>My professional experience</i>
                 </small>
+                <div className="row">
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Programmer mid. lvl</h3>
+                    <p>
+                      <center>
+                        <img src={require('./experience/tme.png')} />
+                      </center>
+                    </p>
+                    <p>
+                      <small>
+                        I am working as a programmer in TME in .NET technology
+                      </small>
+                    </p>
+                    <p>
+                      <a
+                        className="btn btn-default"
+                        href="https://www.tme.eu/pl/"
+                        role="button"
+                      >
+                        View TME site &raquo;
+                      </a>
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Programmer mid./jun. lvl</h3>
+                    <p>
+                      <center>
+                        <img src={require('./experience/Fabrity.jpg')} />
+                      </center>
+                    </p>
+                    <p>
+                      <small>I am working in Fabrity as a programmer</small>
+                    </p>
+                    <p>
+                      <a
+                        className="btn btn-default"
+                        href="https://www.fabrity.pl/"
+                        role="button"
+                      >
+                        View Fabrity site &raquo;
+                      </a>
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Intern</h3>
+                    <p>
+                      <center>
+                        <img src={require('./experience/oracle-logo.png')} />
+                      </center>
+                    </p>
+                    <p>
+                      <small>
+                        I have an internship in Oracle Polska. I do things with
+                        Oracle Mobile Application Framework
+                      </small>
+                    </p>
+                    <p>
+                      <a
+                        className="btn btn-default"
+                        href="https://www.oracle.com/pl/index.html"
+                        role="button"
+                      >
+                        View Oracle Polska site &raquo;
+                      </a>
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>IT maintenance and Sales</h3>
+                    <p>
+                      <center>
+                        <img src={require('./experience/satserwis-logo.png')} />
+                      </center>
+                    </p>
+                    <p>
+                      <small>
+                        In family buissness I worked in site maintenance and as
+                        a Sales Support
+                      </small>
+                    </p>
+                    <p>
+                      <a
+                        className="btn btn-default"
+                        href="https://sklep.satserwis.pl/"
+                        role="button"
+                      >
+                        View Sat-Serwis site &raquo;
+                      </a>
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="row">
+            </Collapsible>
+          )
+        },
+        {
+          key: 333,
+          icon: (
+            <button
+              className="buttons"
+              onClick={() => this.ClickItem(333)}
+              ref={a => (this._buttonProSkillStep = a)}
+            >
+              <i className="fas fa-globe-americas" />
+            </button>
+          ),
+          additionalOptions: (
+            <Collapsible ref={a => (this._collapsibleProSkillStep = a)}>
+              <div className="collapsible">
+                Professional skills
+                <br />
+                <small>
+                  <i>My professional skills</i>
+                </small>
+                <div className="row">
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Language</h3>
+                    <p>
+                      <center>
+                        <img src={require('./skills/csharp.jpg')} />
+                      </center>
+                    </p>
+                    <p>
+                      My main languages which I used through my programmer
+                      career.
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Language</h3>
+                    <p>
+                      <center>
+                        <img src={require('./skills/JavaScript-logo.png')} />
+                      </center>
+                    </p>
+                    <p>As a webdeveloper I was forced to use JavaScript.</p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Language</h3>
+                    <p>
+                      <center>
+                        <img src={require('./skills/python.jpg')} />
+                      </center>
+                    </p>
+                    <p>
+                      Lastly, my additional programming lanugage is Python. I
+                      used this language to project machine learning
+                      infrastructure.
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Technology</h3>
+                    <p>
+                      <center>
+                        <img src={require('./skills/react-redux.png')} />
+                      </center>
+                    </p>
+                    <p>
+                      This is one of my freshest hobby. I am now focused on
+                      react because I really like it!
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Technology</h3>
+                    <p>
+                      <center>
+                        <img src={require('./skills/netFramework.png')} />
+                      </center>
+                    </p>
+                    <p>
+                      As every .net developer I used standard .net framework
+                      libraries from 3.5 version but I have been a member of two
+                      project written in 2 version.
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Technology</h3>
+                    <p>
+                      <center>
+                        <img src={require('./skills/netCore.jpg')} />
+                      </center>
+                    </p>
+                    <p>
+                      For .Net developers it is normal to learn and used .net
+                      core.
+                    </p>
+                  </div>
+                </div>
                 <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>Programmer mid. lvl</h3>
+                  <h3>Technology</h3>
                   <p>
                     <center>
-                      <img src={require('./experience/tme.png')} />
+                      <img src={require('./skills/netMVC.jpg')} />
                     </center>
                   </p>
                   <p>
-                    <small>
-                      I am working as a programmer in TME in .NET technology
-                    </small>
-                  </p>
-                  <p>
-                    <a
-                      className="btn btn-default"
-                      href="https://www.tme.eu/pl/"
-                      role="button"
-                    >
-                      View TME site &raquo;
-                    </a>
+                    One of my lieblings technology is ASP.NET MVC 5 - I think it
+                    is the best!
                   </p>
                 </div>
                 <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>Programmer mid./jun. lvl</h3>
+                  <h3>Technology</h3>
                   <p>
                     <center>
-                      <img src={require('./experience/Fabrity.jpg')} />
+                      <img src={require('./skills/sklearn.png')} />
                     </center>
                   </p>
                   <p>
-                    <small>I am working in Fabrity as a programmer</small>
-                  </p>
-                  <p>
-                    <a
-                      className="btn btn-default"
-                      href="https://www.fabrity.pl/"
-                      role="button"
-                    >
-                      View Fabrity site &raquo;
-                    </a>
-                  </p>
-                </div>
-                <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>Intern</h3>
-                  <p>
-                    <center>
-                      <img src={require('./experience/oracle-logo.png')} />
-                    </center>
-                  </p>
-                  <p>
-                    <small>
-                      I have an internship in Oracle Polska. I do things with
-                      Oracle Mobile Application Framework
-                    </small>
-                  </p>
-                  <p>
-                    <a
-                      className="btn btn-default"
-                      href="https://www.oracle.com/pl/index.html"
-                      role="button"
-                    >
-                      View Oracle Polska site &raquo;
-                    </a>
-                  </p>
-                </div>
-                <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>IT maintenance and Sales</h3>
-                  <p>
-                    <center>
-                      <img src={require('./experience/satserwis-logo.png')} />
-                    </center>
-                  </p>
-                  <p>
-                    <small>
-                      In family buissness I worked in site maintenance and as a
-                      Sales Support
-                    </small>
-                  </p>
-                  <p>
-                    <a
-                      className="btn btn-default"
-                      href="https://sklep.saterwis.pl"
-                      role="button"
-                    >
-                      View Sat-Serwis site &raquo;
-                    </a>
+                    Which programmer who are creating machine learning project
+                    doesn't use sklearn library?
                   </p>
                 </div>
               </div>
             </Collapsible>
           )
         },
-        { key: 333, icon: <i className="fas fa-globe-americas" /> },
         { key: 444, icon: <i className="fas fa-republican" /> },
         { key: 555, icon: <i className="fas fa-calendar-alt" /> },
         { key: 666, icon: <i className="fas fa-car" /> },
@@ -207,6 +326,10 @@ class CirclesItemsVerticalExample extends Component {
     input.push({
       btn: this._buttonExperienceStep,
       value: this._collapsibleExperienceStep
+    });
+    input.push({
+      btn: this._buttonProSkillStep,
+      value: this._collapsibleProSkillStep
     });
 
     for (var i = 0; i < input.length; i++) {
@@ -245,20 +368,25 @@ class CirclesItemsVerticalExample extends Component {
   };
 
   ClickItem(event) {
-    if (event === 111) {
-      var input = this._collapsibleEducationStep;
-      if (input.state.isClosed) {
-        input.openCollapsible();
-      } else {
-        input.closeCollapsible();
-      }
-    } else if (event === 222) {
-      var input = this._collapsibleExperienceStep;
-      if (input.state.isClosed) {
-        input.openCollapsible();
-      } else {
-        input.closeCollapsible();
-      }
+    var input = '';
+    switch (event) {
+      case 111:
+        input = this._collapsibleEducationStep;
+        break;
+      case 222:
+        input = this._collapsibleExperienceStep;
+        break;
+      case 333:
+        input = this._collapsibleProSkillStep;
+        break;
+      default:
+        return;
+    }
+
+    if (input.state.isClosed) {
+      input.openCollapsible();
+    } else {
+      input.closeCollapsible();
     }
   }
 
