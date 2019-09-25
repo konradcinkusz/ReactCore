@@ -1,6 +1,6 @@
 .InternalUL ul {
   list-style: none;
-  margin: 50px;
+  margin: 10px;
   padding: 0;
   font: normal 16px/22px Arial;
   color: #999;
@@ -9,33 +9,54 @@
 .circleListV li {
   overflow: hidden;
   position: relative;
-  padding: 0 0 10px 35px;
+  padding: 0 0 35px 45px;
 }
+
+.circleListV li .buttons {
+  margin: 0;
+  position: absolute;
+  /* top: 50%;
+  left: 50%; 
+  -ms-transform: translate(-31px, 3px); /* powinno być niby -35px, -10px, ale w commons style buttons ma padding 4px*/
+  transform: translate(-41px, 3px);
+  color: #333;
+  transition: all 0.15s ease-in;
+  border-radius: 50%;
+  outline: none;
+}
+
 .circleListV li::before {
   content: '';
   position: absolute;
-  left: 9px;
-  top: 9px;
+  left: 17.5px;
+  top: 17.5px;
   width: 20px;
   height: 999px;
   border: 2px solid lightblue;
-  border-width: 2px 0 0 2px;
+  border-width: 0 0 0 2px;
   counter-increment: stepCount;
-  content: counter(stepCount);
+  /* content: counter(stepCount); */
+  z-index: -2;
 }
 .circleListV li:last-child::before {
   border-width: 2px 0 0;
 }
 .circleListV li::after {
   content: '';
+  /* content: counter(stepCount); */
   position: absolute;
   left: 0;
   top: 0;
-  width: 16px;
-  height: 16px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  margin: 0;
   background: #fff;
   border: 2px solid lightblue;
   border-radius: 50%;
+  height: 35px;
+  line-height: 35px; /* same as height! */
+  z-index: -1;
 }
 .circleListV li.current,
 .circleListV li.passed {

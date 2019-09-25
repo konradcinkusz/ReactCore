@@ -15,12 +15,12 @@ class CirclesItemsVertical extends Component {
   }
 
   createTask(item) {
-    var isActive = '';
-    if (item.key === 333) {
-      isActive = 'current';
-    } else if (item.key < 333) {
-      isActive = 'passed';
-    }
+    var isActive = 'passed';
+    // if (item.key === 333) {
+    //   isActive = 'current';
+    // } else if (item.key < 333) {
+    //   isActive = 'passed';
+    // }
     return (
       <li key={item.key} className={isActive}>
         {item.icon}
