@@ -20,6 +20,7 @@
     "react-dom": "^16.2.1",
     "react-dropdown": "^1.6.4",
     "react-flip-move": "^3.0.3",
+    "react-image-autofit-frame": "^0.1.0",
     "react-native-tooltip": "^5.2.0",
     "react-plotly": "^1.0.0",
     "react-plotly.js": "^2.3.0",

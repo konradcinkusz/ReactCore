@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CirclesItemsVertical from '../commons/CirclesItemsVertical';
 import Collapsible from 'react-collapsible';
+import './CirclesItemsVerticalExample.css';
 
 class CirclesItemsVerticalExample extends Component {
   constructor(props) {
@@ -16,13 +17,54 @@ class CirclesItemsVerticalExample extends Component {
             </button>
           ),
           additionalOptions: (
-            <Collapsible open="true" ref={a => (this._inputElementName = a)}>
+            <Collapsible ref={a => (this._inputElementName = a)}>
               <div>
                 Education
                 <br />
                 <small>
                   <i>My key education points</i>
                 </small>
+                <div className="row">
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Secondary Education</h3>
+                    <p>
+                      <center>
+                        <img src={require('./patron.jpg')} />
+                      </center>
+                    </p>
+                    <p>
+                      2005 volkswagen jetta 2.5 for sale has 110,000 miles
+                      powere doors,power windows,has ,car drives excellent
+                      ,comes with warranty if you&#39;re ...
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Secondary Education</h3>
+                    <p>
+                      <center>
+                        <img src={require('./logotype_polibuda.jpg')} />
+                      </center>
+                    </p>
+                    <p>
+                      2005 volkswagen jetta 2.5 for sale has 110,000 miles
+                      powere doors,power windows,has ,car drives excellent
+                      ,comes with warranty if you&#39;re ...
+                    </p>
+                  </div>
+                  <div className="col-6 col-sm-6 col-lg-4">
+                    <h3>Secondary Education</h3>
+                    <p>
+                      <center>
+                        <img src={require('./logo_weeia.png')} />
+                      </center>
+                    </p>
+                    <p>
+                      2005 volkswagen jetta 2.5 for sale has 110,000 miles
+                      powere doors,power windows,has ,car drives excellent
+                      ,comes with warranty if you&#39;re ...
+                    </p>
+                  </div>
+                </div>
               </div>
             </Collapsible>
           )
@@ -35,13 +77,104 @@ class CirclesItemsVerticalExample extends Component {
             </button>
           ),
           additionalOptions: (
-            <Collapsible open="true" ref={a => (this._inputElementStep2 = a)}>
+            <Collapsible ref={a => (this._inputElementStep2 = a)}>
               <div>
                 Experience
                 <br />
                 <small>
                   <i>My professional experience</i>
                 </small>
+              </div>
+              <div className="row">
+                <div className="col-6 col-sm-6 col-lg-4">
+                  <h3>
+                    2005 Volkswagen Jetta 2.5 Sedan (worcester
+                    http://www.massmotorcars.com) $6900
+                  </h3>
+                  <p>
+                    <center>
+                      <img src={require('./patron.jpg')} />
+                    </center>
+                  </p>
+                  <p>
+                    <small>
+                      2005 volkswagen jetta 2.5 for sale has 110,000 miles
+                      powere doors,power windows,has ,car drives excellent
+                      ,comes with warranty if you&#39;re ...
+                    </small>
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-default"
+                      href="/search/1355/detail/"
+                      role="button"
+                    >
+                      View details &raquo;
+                    </a>
+                    <button type="button" className="btn bookmark" id="1355">
+                      <span
+                        className="
+                  glyphicon glyphicon-star-empty "
+                      ></span>
+                    </button>
+                  </p>
+                </div>
+                <div className="col-6 col-sm-6 col-lg-4">
+                  <h3>
+                    2006 Honda Civic EX Sedan (Worcester www.massmotorcars.com)
+                    $7950
+                  </h3>
+                  <p>
+                    <small>
+                      2006 honda civic ex has 110,176 miles, has power doors
+                      ,power windows,sun roof,alloy wheels,runs great, cd
+                      player, 4 cylinder engen, ...
+                    </small>
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-default"
+                      href="/search/1356/detail/"
+                      role="button"
+                    >
+                      View details &raquo;
+                    </a>
+                    <button type="button" className="btn bookmark" id="1356">
+                      <span
+                        className="
+                  glyphicon glyphicon-star-empty "
+                      ></span>
+                    </button>
+                  </p>
+                </div>
+                <div className="col-6 col-sm-6 col-lg-4">
+                  <h3>
+                    2004 Honda Civic LX Sedan (worcester www.massmotorcars.com)
+                    $5900
+                  </h3>
+                  <p>
+                    <small>
+                      2004 honda civic lx sedan has 134,000 miles, great looking
+                      car, interior and exterior looks nice,has cd player, power
+                      windows ...
+                    </small>
+                  </p>
+                  <p>
+                    <a
+                      className="btn btn-default"
+                      href="/search/1357/detail/"
+                      role="button"
+                    >
+                      View details &raquo;
+                    </a>
+                    <button type="button" className="btn bookmark" id="1357">
+                      <span
+                        className="
+                  glyphicon glyphicon-star-empty "
+                      ></span>
+                    </button>
+                  </p>
+                </div>
               </div>
             </Collapsible>
           )
@@ -56,10 +189,31 @@ class CirclesItemsVerticalExample extends Component {
     };
   }
 
+  sleep = milliseconds => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+  };
+
+  doSomething = async () => {
+    await this.sleep(1000);
+    var input = [];
+    input.push(this._inputElementName);
+    input.push(this._inputElementStep2);
+    for (var i = 0; i < input.length; i++) {
+      if (input[i].state.isClosed) {
+        input[i].openCollapsible();
+      } else {
+        input[i].closeCollapsible();
+      }
+      await this.sleep(370);
+    }
+    //do stuff
+  };
+
   //Get scroll position with Reactjs
   //https://stackoverflow.com/a/53158893/5493318
   componentDidMount() {
     window.addEventListener('scroll', this.listenToScroll);
+    this.doSomething();
   }
 
   componentWillUnmount() {
