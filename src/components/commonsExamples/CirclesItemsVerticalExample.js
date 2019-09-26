@@ -111,120 +111,115 @@ class CirclesItemsVerticalExample extends Component {
             })
           }
         }),
-        {
+        madeMockRecord({
           key: 222,
-          icon: (
-            // className={`${this.errorFuelTypeClass(this.state.carFuelDropDownValid)}`}
-            <button
-              className="buttons"
-              onClick={() => this.ClickItem(222)}
-              ref={a => (this._buttonExperienceStep = a)}
-            >
-              <i className="fas fa-laptop-code" />
-            </button>
-          ),
-          additionalOptions: (
-            <Collapsible ref={a => (this._collapsibleExperienceStep = a)}>
-              <div className="collapsible">
-                Experience
-                <br />
-                <small>
-                  <i>My professional experience</i>
-                </small>
-                <div className="row">
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Programmer mid. lvl</h3>
-                    <p>
-                      <center>
-                        <img src={require('./experience/tme.png')} />
-                      </center>
-                    </p>
-                    <p>
-                      <small>
-                        I am working as a programmer in TME in .NET technology
-                      </small>
-                    </p>
-                    <p>
-                      <a
-                        className="btn btn-default"
-                        href="https://www.tme.eu/pl/"
-                        role="button"
-                      >
-                        View TME site &raquo;
-                      </a>
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Programmer mid./jun. lvl</h3>
-                    <p>
-                      <center>
-                        <img src={require('./experience/Fabrity.jpg')} />
-                      </center>
-                    </p>
-                    <p>
-                      <small>I am working in Fabrity as a programmer</small>
-                    </p>
-                    <p>
-                      <a
-                        className="btn btn-default"
-                        href="https://www.fabrity.pl/"
-                        role="button"
-                      >
-                        View Fabrity site &raquo;
-                      </a>
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Intern</h3>
-                    <p>
-                      <center>
-                        <img src={require('./experience/oracle-logo.png')} />
-                      </center>
-                    </p>
-                    <p>
-                      <small>
-                        I have an internship in Oracle Polska. I do things with
-                        Oracle Mobile Application Framework
-                      </small>
-                    </p>
-                    <p>
-                      <a
-                        className="btn btn-default"
-                        href="https://www.oracle.com/pl/index.html"
-                        role="button"
-                      >
-                        View Oracle Polska site &raquo;
-                      </a>
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>IT maintenance and Sales</h3>
-                    <p>
-                      <center>
-                        <img src={require('./experience/satserwis-logo.png')} />
-                      </center>
-                    </p>
-                    <p>
-                      <small>
-                        In family buissness I worked in site maintenance and as
-                        a Sales Support
-                      </small>
-                    </p>
-                    <p>
-                      <a
-                        className="btn btn-default"
-                        href="https://sklep.satserwis.pl/"
-                        role="button"
-                      >
-                        View Sat-Serwis site &raquo;
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Collapsible>
-          )
-        },
+          icon: {
+            func: makeButton({
+              onClick: { click: () => this.ClickItem(222) },
+              refFunc: { func: a => (this._buttonExperienceStep = a) },
+              icon: <i className="fas fa-laptop-code" />
+            })
+          },
+          additionalOptions: {
+            func: makeAdditionalOptions({
+              title: 'Experience',
+              subTitle: 'My professional experience',
+              collabseRef: {
+                func: a => (this._collapsibleExperienceStep = a)
+              },
+              listItems: [
+                makeCol({
+                  title: 'Programmer mid. lvl',
+                  image: { img: require('./experience/tme.png') },
+                  description: (
+                    <div>
+                      <p>
+                        <small>
+                          I am working as a programmer in TME in .NET technology
+                        </small>
+                      </p>
+                      <p>
+                        <a
+                          className="btn btn-default"
+                          href="https://www.tme.eu/pl/"
+                          role="button"
+                        >
+                          View TME site &raquo;
+                        </a>
+                      </p>
+                    </div>
+                  )
+                }),
+                makeCol({
+                  title: 'Programmer mid./jun. lvl',
+                  image: { img: require('./experience/Fabrity.jpg') },
+                  description: (
+                    <div>
+                      <p>
+                        <small>I am working in Fabrity as a programmer</small>
+                      </p>
+                      <p>
+                        <a
+                          className="btn btn-default"
+                          href="https://www.fabrity.pl/"
+                          role="button"
+                        >
+                          View Fabrity site &raquo;
+                        </a>
+                      </p>
+                    </div>
+                  )
+                }),
+                makeCol({
+                  title: 'Intern',
+                  image: { img: require('./experience/oracle-logo.png') },
+                  description: (
+                    <div>
+                      <p>
+                        <small>
+                          I have an internship in Oracle Polska. I do things
+                          with Oracle Mobile Application Framework
+                        </small>
+                      </p>
+                      <p>
+                        <a
+                          className="btn btn-default"
+                          href="https://www.oracle.com/pl/index.html"
+                          role="button"
+                        >
+                          View Oracle Polska site &raquo;
+                        </a>
+                      </p>
+                    </div>
+                  )
+                }),
+                makeCol({
+                  title: 'IT maintenance and Sales',
+                  image: { img: require('./experience/satserwis-logo.png') },
+                  description: (
+                    <div>
+                      <p>
+                        <small>
+                          In family buissness I worked in site maintenance and
+                          as a Sales Support
+                        </small>
+                      </p>
+                      <p>
+                        <a
+                          className="btn btn-default"
+                          href="https://sklep.satserwis.pl/"
+                          role="button"
+                        >
+                          View Sat-Serwis site &raquo;
+                        </a>
+                      </p>
+                    </div>
+                  )
+                })
+              ]
+            })
+          }
+        }),
         {
           key: 333,
           icon: makeButton({
