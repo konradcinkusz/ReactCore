@@ -8,6 +8,58 @@ class CirclesItemsVerticalExample extends Component {
   constructor(props) {
     super(props);
     this.ClickItem = this.ClickItem.bind(this);
+
+    function makeAdditionalOptions(item) {
+      let title = item.title;
+      let subTitle = item.subTitle;
+      let collabseRef = item.collabseRef;
+      let listItems = item.listItems;
+
+      return (
+        <div>
+          {title}
+          <br />
+          <small>
+            <i>{subTitle}</i>
+          </small>
+          <Collapsible ref={collabseRef.func}>
+            <div className="collapsible">
+              <div className="row">{listItems}</div>
+            </div>
+          </Collapsible>
+        </div>
+      );
+    }
+
+    function makeButton(item) {
+      let onClick = item.onClick;
+      let refFunc = item.refFunc;
+      let icon = item.icon;
+      return (
+        <button className="buttons" onClick={onClick.click} ref={refFunc.func}>
+          {icon}
+        </button>
+      );
+    }
+
+    function makeCol(item) {
+      let title = item.title;
+      let description = item.description;
+      let image = item.image;
+
+      return (
+        <div className="col-6 col-sm-6 col-lg-4">
+          <h3>{title}</h3>
+          <p>
+            <center>
+              <img src={image.img} />
+            </center>
+          </p>
+          <p>{description}</p>
+        </div>
+      );
+    }
+
     this.state = {
       entries: [
         {
@@ -186,125 +238,172 @@ class CirclesItemsVerticalExample extends Component {
         },
         {
           key: 333,
-          icon: (
-            <button
-              className="buttons"
-              onClick={() => this.ClickItem(333)}
-              ref={a => (this._buttonProSkillStep = a)}
-            >
-              <i className="fas fa-globe-americas" />
-            </button>
-          ),
+          icon: makeButton({
+            onClick: { click: () => this.ClickItem(333) },
+            refFunc: { func: a => (this._buttonProSkillStep = a) },
+            icon: <i className="fas fa-globe-americas" />
+          }),
           additionalOptions: (
-            <Collapsible ref={a => (this._collapsibleProSkillStep = a)}>
-              <div className="collapsible">
-                Professional skills
-                <br />
-                <small>
-                  <i>My professional skills</i>
-                </small>
-                <div className="row">
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Language</h3>
-                    <p>
-                      <center>
-                        <img src={require('./skills/csharp.jpg')} />
-                      </center>
-                    </p>
-                    <p>
-                      My main languages which I used through my programmer
-                      career.
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Language</h3>
-                    <p>
-                      <center>
-                        <img src={require('./skills/JavaScript-logo.png')} />
-                      </center>
-                    </p>
-                    <p>As a webdeveloper I was forced to use JavaScript.</p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Language</h3>
-                    <p>
-                      <center>
-                        <img src={require('./skills/python.jpg')} />
-                      </center>
-                    </p>
-                    <p>
-                      Lastly, my additional programming lanugage is Python. I
-                      used this language to project machine learning
-                      infrastructure.
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Technology</h3>
-                    <p>
-                      <center>
-                        <img src={require('./skills/react-redux.png')} />
-                      </center>
-                    </p>
-                    <p>
-                      This is one of my freshest hobby. I am now focused on
-                      react because I really like it!
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Technology</h3>
-                    <p>
-                      <center>
-                        <img src={require('./skills/netFramework.png')} />
-                      </center>
-                    </p>
-                    <p>
-                      As every .net developer I used standard .net framework
-                      libraries from 3.5 version but I have been a member of two
-                      project written in 2 version.
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Technology</h3>
-                    <p>
-                      <center>
-                        <img src={require('./skills/netCore.jpg')} />
-                      </center>
-                    </p>
-                    <p>
-                      For .Net developers it is normal to learn and used .net
-                      core.
-                    </p>
+            <div>
+              Professional skills
+              <br />
+              <small>
+                <i>My professional skills</i>
+              </small>
+              <Collapsible ref={a => (this._collapsibleProSkillStep = a)}>
+                <div className="collapsible">
+                  <div className="row">
+                    {makeCol({
+                      title: 'Language',
+                      image: { img: require('./skills/csharp.jpg') },
+                      description:
+                        'My main languages which I used through my programmer career.'
+                    })}
+                    <div className="col-6 col-sm-6 col-lg-4">
+                      <h3>Language</h3>
+                      <p>
+                        <center>
+                          <img src={require('./skills/JavaScript-logo.png')} />
+                        </center>
+                      </p>
+                      <p>As a webdeveloper I was forced to use JavaScript.</p>
+                    </div>
+                    <div className="col-6 col-sm-6 col-lg-4">
+                      <h3>Language</h3>
+                      <p>
+                        <center>
+                          <img src={require('./skills/python.jpg')} />
+                        </center>
+                      </p>
+                      <p>
+                        Lastly, my additional programming lanugage is Python. I
+                        used this language to project machine learning
+                        infrastructure.
+                      </p>
+                    </div>
+                    <div className="col-6 col-sm-6 col-lg-4">
+                      <h3>Technology</h3>
+                      <p>
+                        <center>
+                          <img src={require('./skills/react-redux.png')} />
+                        </center>
+                      </p>
+                      <p>
+                        This is one of my freshest hobby. I am now focused on
+                        react because I really like it!
+                      </p>
+                    </div>
+                    <div className="col-6 col-sm-6 col-lg-4">
+                      <h3>Technology</h3>
+                      <p>
+                        <center>
+                          <img src={require('./skills/netFramework.png')} />
+                        </center>
+                      </p>
+                      <p>
+                        As every .net developer I used standard .net framework
+                        libraries from 3.5 version but I have been a member of
+                        two project written in 2 version.
+                      </p>
+                    </div>
+                    <div className="col-6 col-sm-6 col-lg-4">
+                      <h3>Technology</h3>
+                      <p>
+                        <center>
+                          <img src={require('./skills/netCore.jpg')} />
+                        </center>
+                      </p>
+                      <p>
+                        For .Net developers it is normal to learn and used .net
+                        core.
+                      </p>
+                    </div>
+                    <div className="col-6 col-sm-6 col-lg-4">
+                      <h3>Technology</h3>
+                      <p>
+                        <center>
+                          <img src={require('./skills/netMVC.jpg')} />
+                        </center>
+                      </p>
+                      <p>
+                        One of my lieblings technology is ASP.NET MVC 5 - I
+                        think it is the best!
+                      </p>
+                    </div>
+                    <div className="col-6 col-sm-6 col-lg-4">
+                      <h3>Technology</h3>
+                      <p>
+                        <center>
+                          <img src={require('./skills/sklearn.png')} />
+                        </center>
+                      </p>
+                      <p>
+                        Which programmer who are creating machine learning
+                        project doesn't use sklearn library?
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>Technology</h3>
-                  <p>
-                    <center>
-                      <img src={require('./skills/netMVC.jpg')} />
-                    </center>
-                  </p>
-                  <p>
-                    One of my lieblings technology is ASP.NET MVC 5 - I think it
-                    is the best!
-                  </p>
-                </div>
-                <div className="col-6 col-sm-6 col-lg-4">
-                  <h3>Technology</h3>
-                  <p>
-                    <center>
-                      <img src={require('./skills/sklearn.png')} />
-                    </center>
-                  </p>
-                  <p>
-                    Which programmer who are creating machine learning project
-                    doesn't use sklearn library?
-                  </p>
-                </div>
-              </div>
-            </Collapsible>
+              </Collapsible>
+            </div>
           )
         },
-        { key: 444, icon: <i className="fas fa-republican" /> },
+        {
+          key: 444,
+          icon: makeButton({
+            onClick: { click: () => this.ClickItem(444) },
+            refFunc: { func: a => (this._buttonToolsStep = a) },
+            icon: <i className="fas fa-republican" />
+          }),
+          additionalOptions: makeAdditionalOptions({
+            title: 'Used programming tools',
+            subTitle:
+              'This is the tools which I used during my programming career',
+            collabseRef: { func: a => (this._collapsibleToolsStep = a) },
+            listItems: [
+              makeCol({
+                title: 'Visual Studio 2019 Pro',
+                image: { img: require('./Tools/vs2019.png') },
+                description: 'This is my main tool'
+              }),
+              makeCol({
+                title: 'Microsoft TFS',
+                image: { img: require('./Tools/tfs.png') },
+                description:
+                  'Used as version control system and project management tool.'
+              }),
+              makeCol({
+                title: 'Microsoft IIS',
+                image: { img: require('./Tools/MicrosofIIS.png') },
+                description:
+                  'For web management and deployment I always use Microsoft IIS.'
+              }),
+              makeCol({
+                title: 'Microsoft SSMS',
+                image: { img: require('./Tools/ssms.png') },
+                description:
+                  'For database quering and management I used SQL Server Management Studio but lastly I try to change to SSMS whithin Visual Studio 2019'
+              }),
+              makeCol({
+                title: 'Version control systems',
+                image: { img: require('./Tools/control_version_systems.jpg') },
+                description:
+                  'I used GIT as code repository management system and I use github, gitlab and bitbucket as repository server'
+              }),
+              makeCol({
+                title: 'Atlassian stack',
+                image: { img: require('./Tools/attlasian.jpg') },
+                description:
+                  'I have an experience with most of atlassian stack tool. Eg. bamboo CI, Jira management and bitbuicket source control'
+              }),
+              makeCol({
+                title: 'Atlassian stack',
+                image: { img: require('./Tools/Bamboo.png') },
+                description: 'In CI working I used only bamboo'
+              })
+            ]
+          })
+        },
         { key: 555, icon: <i className="fas fa-calendar-alt" /> },
         { key: 666, icon: <i className="fas fa-car" /> },
         { key: 777, icon: <i className="far fa-envelope" /> }
@@ -331,6 +430,10 @@ class CirclesItemsVerticalExample extends Component {
     input.push({
       btn: this._buttonProSkillStep,
       value: this._collapsibleProSkillStep
+    });
+    input.push({
+      btn: this._buttonToolsStep,
+      value: this._collapsibleToolsStep
     });
 
     for (var i = 0; i < input.length; i++) {
@@ -379,6 +482,9 @@ class CirclesItemsVerticalExample extends Component {
         break;
       case 333:
         input = this._collapsibleProSkillStep;
+        break;
+      case 444:
+        input = this._collapsibleToolsStep;
         break;
       default:
         return;
