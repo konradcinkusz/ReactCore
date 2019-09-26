@@ -3,6 +3,7 @@ import CirclesItemsVertical from '../commons/CirclesItemsVertical';
 import Collapsible from 'react-collapsible';
 import './CirclesItemsVerticalExample.css';
 import CirclesItemsCounterExample from './CirclesItemsCounterExample';
+import { format } from 'path';
 
 class CirclesItemsVerticalExample extends Component {
   constructor(props) {
@@ -15,9 +16,12 @@ class CirclesItemsVerticalExample extends Component {
       let subTitle = item.subTitle;
       let collabseRef = item.collabseRef;
       let listItems = item.listItems;
-
+      let divReference = { ref: a => a };
+      if (item.divReference !== undefined) {
+        divReference.ref = item.divReference.ref;
+      }
       return (
-        <div>
+        <div ref={divReference.ref}>
           {title}
           <br />
           <small>
@@ -74,6 +78,7 @@ class CirclesItemsVerticalExample extends Component {
     }
 
     this.state = {
+      proSkillsClicked: false,
       entries: [
         madeMockRecord({
           key: 111,
@@ -86,6 +91,7 @@ class CirclesItemsVerticalExample extends Component {
           },
           additionalOptions: {
             func: makeAdditionalOptions({
+              divReference: { ref: a => (this._divEducationStep = a) },
               title: 'Education',
               subTitle: 'My key education points',
               collabseRef: {
@@ -234,8 +240,9 @@ class CirclesItemsVerticalExample extends Component {
           },
           additionalOptions: {
             func: makeAdditionalOptions({
+              divReference: { ref: a => (this._divProSkillStep = a) },
               title: 'Professional skills',
-              subTitle: 'My professional skills',
+              subTitlev: 'My professional skills',
               collabseRef: {
                 func: a => (this._collapsibleProSkillStep = a)
               },
@@ -515,22 +522,57 @@ class CirclesItemsVerticalExample extends Component {
   //Get scroll position with Reactjs
   //https://stackoverflow.com/a/53158893/5493318
   componentDidMount() {
-    window.addEventListener('scroll', this.listenToScroll);
     this.expandCollapsibles();
+    //window.addEventListener('scroll', this.listenToScroll);
+    window.addEventListener('scroll', () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      const scrolled = winScroll / height;
+      if (!this.state.proSkillsClicked) {
+        var el = this._divProSkillStep;
+        var dom = el.getBoundingClientRect();
+        var percentOfScrolled = dom.top / height;
+        if (percentOfScrolled < scrolled - 0.1 && percentOfScrolled > 0.1) {
+          if (this._collapsibleProSkillStep.state.isClosed) {
+            this._collapsibleProSkillStep.openCollapsible();
+          }
+        } else {
+          if (!this._collapsibleProSkillStep.state.isClosed) {
+            this._collapsibleProSkillStep.closeCollapsible();
+          }
+        }
+      }
+    });
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.listenToScroll);
   }
 
-  listenToScroll = () => {
+  listenToScroll = e => {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
 
     const height =
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
-
+    var el = this._divProSkillStep;
+    let collapse = this._collapsibleProSkillStep;
+    if (el !== undefined && collapse !== undefined) {
+      var dom = el.getBoundingClientRect();
+      if (dom !== undefined) {
+        if (dom.top - dom.height < 0) {
+          collapse.closeCollapsible();
+        } else {
+          collapse.closeCollapsible();
+        }
+      }
+    }
     const scrolled = winScroll / height;
     this.setState({
       theposition: scrolled
@@ -548,6 +590,11 @@ class CirclesItemsVerticalExample extends Component {
         break;
       case 333:
         input = this._collapsibleProSkillStep;
+        if (!this.state.proSkillsClicked) {
+          this.setState({
+            proSkillsClicked: true
+          });
+        }
         break;
       case 444:
         input = this._collapsibleToolsStep;
