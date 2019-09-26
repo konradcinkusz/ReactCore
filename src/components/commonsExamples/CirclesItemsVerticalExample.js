@@ -513,6 +513,24 @@ class CirclesItemsVerticalExample extends Component {
               ]
             })
           }
+        }),
+        madeMockRecord({
+          key: 777,
+          icon: {
+            func: makeButton({
+              onClick: { click: a => a },
+              refFunc: { func: a => a },
+              icon: <i className="far fa-comments" />
+            })
+          },
+          additionalOptions: {
+            func: makeAdditionalOptions({
+              title: 'Thanks for your time',
+              subTitle: 'spending on my site. Conntac me if you wish!',
+              collabseRef: { func: a => a },
+              listItems: []
+            })
+          }
         })
       ],
       theposition: ''
@@ -599,6 +617,7 @@ class CirclesItemsVerticalExample extends Component {
         break;
       case 444:
         input = this._collapsibleToolsStep;
+        break;
       case 555:
         input = this._collapsibleOtherToolsStep;
         break;
