@@ -3,7 +3,6 @@ import CirclesItemsVertical from '../commons/CirclesItemsVertical';
 import Collapsible from 'react-collapsible';
 import './CirclesItemsVerticalExample.css';
 import CirclesItemsCounterExample from './CirclesItemsCounterExample';
-import { format } from 'path';
 
 class CirclesItemsVerticalExample extends Component {
   constructor(props) {
@@ -78,7 +77,7 @@ class CirclesItemsVerticalExample extends Component {
     }
 
     this.state = {
-      proSkillsClicked: false,
+      proSkillsClicked: true,
       entries: [
         madeMockRecord({
           key: 111,
@@ -242,7 +241,7 @@ class CirclesItemsVerticalExample extends Component {
             func: makeAdditionalOptions({
               divReference: { ref: a => (this._divProSkillStep = a) },
               title: 'Professional skills',
-              subTitlev: 'My professional skills',
+              subTitle: 'My professional skills',
               collabseRef: {
                 func: a => (this._collapsibleProSkillStep = a)
               },
@@ -641,7 +640,9 @@ class CirclesItemsVerticalExample extends Component {
             </p>
           </div>
         </div>
-        <CirclesItemsCounterExample />
+        <div className="d-none d-xl-block">
+          <CirclesItemsCounterExample />
+        </div>
         <CirclesItemsVertical entries={this.state.entries} />
       </div>
     );

@@ -9,16 +9,17 @@
 .circleListV li {
   overflow: hidden;
   position: relative;
-  padding: 0 0 35px 45px;
+  padding: 0 0 45px 80px;
 }
 
 .circleListV li .buttons {
+  font-size: 32px;
   margin: 0;
   position: absolute;
   /* top: 50%;
   left: 50%; 
   -ms-transform: translate(-31px, 3px); /* powinno być niby -35px, -10px, ale w commons style buttons ma padding 4px*/
-  transform: translate(-41px, 3px);
+  transform: translate(-73px, 12px);
   color: #333;
   transition: all 0.15s ease-in;
   border-radius: 50%;
@@ -28,12 +29,12 @@
 .circleListV li::before {
   content: '';
   position: absolute;
-  left: 17.5px;
-  top: 17.5px;
-  width: 20px;
+  left: 30px;
+  top: 30px;
+  width: 35px;
   height: 1999px;
   border: 2px solid lightblue;
-  border-width: 0 0 0 2px;
+  border-width: 2px 0 0 2px;
   counter-increment: stepCount;
   /* content: counter(stepCount); */
   z-index: -2;
@@ -47,15 +48,15 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 35px;
-  height: 35px;
+  width: 60px;
+  height: 60px;
   text-align: center;
   margin: 0;
   background: #fff;
   border: 2px solid lightblue;
   border-radius: 50%;
-  height: 35px;
-  line-height: 35px; /* same as height! */
+  height: 60px;
+  line-height: 60px; /* same as height! */
   z-index: -1;
 }
 .circleListV li.current,
