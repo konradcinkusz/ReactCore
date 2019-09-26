@@ -59,7 +59,17 @@ class CirclesItemsVerticalExample extends Component {
         </div>
       );
     }
+    function madeMockRecord(item) {
+      let key = item.key;
+      let icon = item.icon;
+      let additionalOptions = item.additionalOptions;
 
+      return {
+        key: key,
+        icon: icon.func,
+        additionalOptions: additionalOptions.func
+      };
+    }
     this.state = {
       entries: [
         {
@@ -348,65 +358,162 @@ class CirclesItemsVerticalExample extends Component {
             </div>
           )
         },
-        {
+        madeMockRecord({
           key: 444,
-          icon: makeButton({
-            onClick: { click: () => this.ClickItem(444) },
-            refFunc: { func: a => (this._buttonToolsStep = a) },
-            icon: <i className="fas fa-republican" />
-          }),
-          additionalOptions: makeAdditionalOptions({
-            title: 'Used programming tools',
-            subTitle:
-              'This is the tools which I used during my programming career',
-            collabseRef: { func: a => (this._collapsibleToolsStep = a) },
-            listItems: [
-              makeCol({
-                title: 'Visual Studio 2019 Pro',
-                image: { img: require('./Tools/vs2019.png') },
-                description: 'This is my main tool'
-              }),
-              makeCol({
-                title: 'Microsoft TFS',
-                image: { img: require('./Tools/tfs.png') },
-                description:
-                  'Used as version control system and project management tool.'
-              }),
-              makeCol({
-                title: 'Microsoft IIS',
-                image: { img: require('./Tools/MicrosofIIS.png') },
-                description:
-                  'For web management and deployment I always use Microsoft IIS.'
-              }),
-              makeCol({
-                title: 'Microsoft SSMS',
-                image: { img: require('./Tools/ssms.png') },
-                description:
-                  'For database quering and management I used SQL Server Management Studio but lastly I try to change to SSMS whithin Visual Studio 2019'
-              }),
-              makeCol({
-                title: 'Version control systems',
-                image: { img: require('./Tools/control_version_systems.jpg') },
-                description:
-                  'I used GIT as code repository management system and I use github, gitlab and bitbucket as repository server'
-              }),
-              makeCol({
-                title: 'Atlassian stack',
-                image: { img: require('./Tools/attlasian.jpg') },
-                description:
-                  'I have an experience with most of atlassian stack tool. Eg. bamboo CI, Jira management and bitbuicket source control'
-              }),
-              makeCol({
-                title: 'Atlassian stack',
-                image: { img: require('./Tools/Bamboo.png') },
-                description: 'In CI working I used only bamboo'
-              })
-            ]
-          })
-        },
-        { key: 555, icon: <i className="fas fa-calendar-alt" /> },
-        { key: 666, icon: <i className="fas fa-car" /> },
-        { key: 777, icon: <i className="far fa-envelope" /> }
+          icon: {
+            func: makeButton({
+              onClick: { click: () => this.ClickItem(444) },
+              refFunc: { func: a => (this._buttonToolsStep = a) },
+              icon: <i className="fas fa-republican" />
+            })
+          },
+          additionalOptions: {
+            func: makeAdditionalOptions({
+              title: 'Used programming tools',
+              subTitle:
+                'This is the tools which I used during my programming career',
+              collabseRef: { func: a => (this._collapsibleToolsStep = a) },
+              listItems: [
+                makeCol({
+                  title: 'Visual Studio 2019 Pro',
+                  image: { img: require('./Tools/vs2019.png') },
+                  description: 'This is my main tool'
+                }),
+                makeCol({
+                  title: 'Microsoft TFS',
+                  image: { img: require('./Tools/tfs.png') },
+                  description:
+                    'Used as version control system and project management tool.'
+                }),
+                makeCol({
+                  title: 'Microsoft IIS',
+                  image: { img: require('./Tools/MicrosofIIS.png') },
+                  description:
+                    'For web management and deployment I always use Microsoft IIS.'
+                }),
+                makeCol({
+                  title: 'Microsoft SSMS',
+                  image: { img: require('./Tools/ssms.png') },
+                  description:
+                    'For database quering and management I used SQL Server Management Studio but lastly I try to change to SSMS whithin Visual Studio 2019'
+                }),
+                makeCol({
+                  title: 'Version control systems',
+                  image: {
+                    img: require('./Tools/control_version_systems.jpg')
+                  },
+                  description:
+                    'I used GIT as code repository management system and I use github, gitlab and bitbucket as repository server'
+                }),
+                makeCol({
+                  title: 'Atlassian stack',
+                  image: { img: require('./Tools/attlasian.jpg') },
+                  description:
+                    'I have an experience with most of atlassian stack tool. Eg. bamboo CI, Jira management and bitbuicket source control'
+                }),
+                makeCol({
+                  title: 'Atlassian stack',
+                  image: { img: require('./Tools/Bamboo.png') },
+                  description: 'In CI working I used only bamboo'
+                })
+              ]
+            })
+          }
+        }),
+        madeMockRecord({
+          key: 666,
+          icon: {
+            func: makeButton({
+              onClick: { click: () => this.ClickItem(666) },
+              refFunc: { func: a => (this._buttonAcademicSkillsStep = a) },
+              icon: <i className="fas fa-car" />
+            })
+          },
+          additionalOptions: {
+            func: makeAdditionalOptions({
+              title: 'Academic skills',
+              subTitle:
+                'During my education I improve many skills which unfortunately I do not used now in professional. Moreover I try to develop this skills in my free time',
+              collabseRef: {
+                func: a => (this._collapsibleAcademicSkillsStep = a)
+              },
+              listItems: [
+                makeCol({
+                  title: 'Technology',
+                  image: { img: require('./academicSkills/arduino.png') },
+                  description:
+                    'This is my home hobby I try to make my own auto plants system.'
+                }),
+                makeCol({
+                  title: 'Language',
+                  image: { img: require('./academicSkills/Clanguage.png') },
+                  description:
+                    'Its base language during my study I used it once in professional when I was developing program to detect wrap perspective of an images'
+                }),
+                makeCol({
+                  title: 'Language',
+                  image: { img: require('./academicSkills/golang.png') },
+                  description:
+                    'This is future of fast web development enviroment. I try to learn syntax and made simply programs.'
+                }),
+                makeCol({
+                  title: 'Language',
+                  image: { img: require('./academicSkills/prolog.png') },
+                  description:
+                    'Its connected with machine learning. When I must create knowledge base I always think about using Prolog.'
+                }),
+                makeCol({
+                  title: 'Technology',
+                  image: { img: require('./academicSkills/cuda.jpg') },
+                  description: 'I write my thesis about CUDA computing.'
+                })
+              ]
+            })
+          }
+        }),
+        madeMockRecord({
+          key: 555,
+          icon: {
+            func: makeButton({
+              onClick: { click: () => this.ClickItem(555) },
+              refFunc: { func: a => (this._buttonOtherToolsStep = a) },
+              icon: <i className="fas fa-calendar-alt" />
+            })
+          },
+          additionalOptions: {
+            func: makeAdditionalOptions({
+              title: 'Other used tools',
+              subTitle: 'This is the computer tools which I used in general',
+              collabseRef: { func: a => (this._collapsibleOtherToolsStep = a) },
+              listItems: [
+                makeCol({
+                  title: 'Eclipse',
+                  image: { img: require('./otherTools/eclipseLogo.png') },
+                  description:
+                    'During my education I used eclipse to developed training Java SE application. I was collecting knowledge about design pattern when I used Java SE.'
+                }),
+                makeCol({
+                  title: 'Oracle JDeveloper',
+                  image: { img: require('./otherTools/jDeveloperLogo.png') },
+                  description:
+                    'When I was in Oracle on internship I used JDevelper tool to developed simple app with Mobile Application Framework.'
+                }),
+                makeCol({
+                  title: 'Matlab',
+                  image: { img: require('./otherTools/matlab.jpg') },
+                  description:
+                    'During my study I was helping to developed my mathemathic skills by myself.'
+                }),
+                makeCol({
+                  title: 'Autodesk Inventor',
+                  image: { img: require('./otherTools/inventor.jpg') },
+                  description:
+                    'I was projecting furniture for my home. Additionaly I have an advance certificate in inventor.'
+                })
+              ]
+            })
+          }
+        })
       ],
       theposition: ''
     };
@@ -435,7 +542,14 @@ class CirclesItemsVerticalExample extends Component {
       btn: this._buttonToolsStep,
       value: this._collapsibleToolsStep
     });
-
+    input.push({
+      btn: this._buttonAcademicSkillsStep,
+      value: this._collapsibleAcademicSkillsStep
+    });
+    input.push({
+      btn: this._buttonOtherToolsStep,
+      value: this._collapsibleOtherToolsStep
+    });
     for (var i = 0; i < input.length; i++) {
       input[i].btn.className = input[i].btn.className + ' isHover';
       if (input[i].value.state.isClosed) {
@@ -485,6 +599,11 @@ class CirclesItemsVerticalExample extends Component {
         break;
       case 444:
         input = this._collapsibleToolsStep;
+      case 555:
+        input = this._collapsibleOtherToolsStep;
+        break;
+      case 666:
+        input = this._collapsibleAcademicSkillsStep;
         break;
       default:
         return;
