@@ -7,6 +7,7 @@ import CirclesItemsCounterExample from './CirclesItemsCounterExample';
 class CirclesItemsVerticalExample extends Component {
   constructor(props) {
     super(props);
+
     this.ClickItem = this.ClickItem.bind(this);
 
     function makeAdditionalOptions(item) {
@@ -59,6 +60,7 @@ class CirclesItemsVerticalExample extends Component {
         </div>
       );
     }
+
     function madeMockRecord(item) {
       let key = item.key;
       let icon = item.icon;
@@ -70,6 +72,7 @@ class CirclesItemsVerticalExample extends Component {
         additionalOptions: additionalOptions.func
       };
     }
+
     this.state = {
       entries: [
         madeMockRecord({
@@ -220,118 +223,75 @@ class CirclesItemsVerticalExample extends Component {
             })
           }
         }),
-        {
+        madeMockRecord({
           key: 333,
-          icon: makeButton({
-            onClick: { click: () => this.ClickItem(333) },
-            refFunc: { func: a => (this._buttonProSkillStep = a) },
-            icon: <i className="fas fa-globe-americas" />
-          }),
-          additionalOptions: (
-            <div>
-              Professional skills
-              <br />
-              <small>
-                <i>My professional skills</i>
-              </small>
-              <Collapsible ref={a => (this._collapsibleProSkillStep = a)}>
-                <div className="collapsible">
-                  <div className="row">
-                    {makeCol({
-                      title: 'Language',
-                      image: { img: require('./skills/csharp.jpg') },
-                      description:
-                        'My main languages which I used through my programmer career.'
-                    })}
-                    <div className="col-6 col-sm-6 col-lg-4">
-                      <h3>Language</h3>
-                      <p>
-                        <center>
-                          <img src={require('./skills/JavaScript-logo.png')} />
-                        </center>
-                      </p>
-                      <p>As a webdeveloper I was forced to use JavaScript.</p>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-4">
-                      <h3>Language</h3>
-                      <p>
-                        <center>
-                          <img src={require('./skills/python.jpg')} />
-                        </center>
-                      </p>
-                      <p>
-                        Lastly, my additional programming lanugage is Python. I
-                        used this language to project machine learning
-                        infrastructure.
-                      </p>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-4">
-                      <h3>Technology</h3>
-                      <p>
-                        <center>
-                          <img src={require('./skills/react-redux.png')} />
-                        </center>
-                      </p>
-                      <p>
-                        This is one of my freshest hobby. I am now focused on
-                        react because I really like it!
-                      </p>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-4">
-                      <h3>Technology</h3>
-                      <p>
-                        <center>
-                          <img src={require('./skills/netFramework.png')} />
-                        </center>
-                      </p>
-                      <p>
-                        As every .net developer I used standard .net framework
-                        libraries from 3.5 version but I have been a member of
-                        two project written in 2 version.
-                      </p>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-4">
-                      <h3>Technology</h3>
-                      <p>
-                        <center>
-                          <img src={require('./skills/netCore.jpg')} />
-                        </center>
-                      </p>
-                      <p>
-                        For .Net developers it is normal to learn and used .net
-                        core.
-                      </p>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-4">
-                      <h3>Technology</h3>
-                      <p>
-                        <center>
-                          <img src={require('./skills/netMVC.jpg')} />
-                        </center>
-                      </p>
-                      <p>
-                        One of my lieblings technology is ASP.NET MVC 5 - I
-                        think it is the best!
-                      </p>
-                    </div>
-                    <div className="col-6 col-sm-6 col-lg-4">
-                      <h3>Technology</h3>
-                      <p>
-                        <center>
-                          <img src={require('./skills/sklearn.png')} />
-                        </center>
-                      </p>
-                      <p>
-                        Which programmer who are creating machine learning
-                        project doesn't use sklearn library?
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Collapsible>
-            </div>
-          )
-        },
+          icon: {
+            func: makeButton({
+              onClick: { click: () => this.ClickItem(333) },
+              refFunc: { func: a => (this._buttonProSkillStep = a) },
+              icon: <i className="fas fa-globe-americas" />
+            })
+          },
+          additionalOptions: {
+            func: makeAdditionalOptions({
+              title: 'Professional skills',
+              subTitle: 'My professional skills',
+              collabseRef: {
+                func: a => (this._collapsibleProSkillStep = a)
+              },
+              listItems: [
+                makeCol({
+                  title: 'Language',
+                  image: { img: require('./skills/csharp.jpg') },
+                  description:
+                    'My main languages which I used through my programmer career.'
+                }),
+                makeCol({
+                  title: 'Language',
+                  image: { img: require('./skills/JavaScript-logo.png') },
+                  description:
+                    'As a webdeveloper I was forced to use JavaScript.'
+                }),
+                makeCol({
+                  title: 'Language',
+                  image: { img: require('./skills/python.jpg') },
+                  description:
+                    'Lastly, my additional programming lanugage is Python. I used this language to project machine learning infrastructure.'
+                }),
+                makeCol({
+                  title: 'Technology',
+                  image: { img: require('./skills/react-redux.png') },
+                  description:
+                    'This is one of my freshest hobby. I am now focused on react because I really like it!'
+                }),
+                makeCol({
+                  title: 'Technology',
+                  image: { img: require('./skills/netFramework.png') },
+                  description:
+                    'As every .net developer I used standard .net framework libraries from 3.5 version but I have been a member of two project written in 2 version.'
+                }),
+                makeCol({
+                  title: 'Technology',
+                  image: { img: require('./skills/netCore.jpg') },
+                  description:
+                    'For .Net developers it is normal to learn and used .net core.'
+                }),
+                makeCol({
+                  title: 'Technology',
+                  image: { img: require('./skills/netMVC.jpg') },
+                  description:
+                    'One of my lieblings technology is ASP.NET MVC 5 - I think it is the best!'
+                }),
+                makeCol({
+                  title: 'Technology',
+                  image: { img: require('./skills/sklearn.png') },
+                  description:
+                    'Which programmer who are creating machine learning project does not use sklearn library?'
+                })
+              ]
+            })
+          }
+        }),
         madeMockRecord({
           key: 444,
           icon: {
