@@ -72,66 +72,45 @@ class CirclesItemsVerticalExample extends Component {
     }
     this.state = {
       entries: [
-        {
+        madeMockRecord({
           key: 111,
-          icon: (
-            <button
-              className="buttons"
-              onClick={() => this.ClickItem(111)}
-              ref={a => (this._buttonEducationStep = a)}
-            >
-              <i className="fas fa-graduation-cap" />
-            </button>
-          ),
-          additionalOptions: (
-            <Collapsible ref={a => (this._collapsibleEducationStep = a)}>
-              <div className="collapsible">
-                Education
-                <br />
-                <small>
-                  <i>My key education points</i>
-                </small>
-                <div className="row">
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Secondary Education</h3>
-                    <p>
-                      <center>
-                        <img src={require('./patron.jpg')} />
-                      </center>
-                    </p>
-                    <p>
-                      I graduated secondary school in maths and physics
-                      specialization
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Higher Education</h3>
-                    <p>
-                      <center>
-                        <img src={require('./logotype_polibuda.jpg')} />
-                      </center>
-                    </p>
-                    <p>
-                      Technical University of Lodz, Diploma in Computer Science
-                    </p>
-                  </div>
-                  <div className="col-6 col-sm-6 col-lg-4">
-                    <h3>Specialization</h3>
-                    <p>
-                      <center>
-                        <img src={require('./logo_weeia.png')} />
-                      </center>
-                    </p>
-                    <p>
-                      Department of electronics; Institute of Applied Computer
-                      Science; Computer Science;
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Collapsible>
-          )
-        },
+          icon: {
+            func: makeButton({
+              onClick: { click: () => this.ClickItem(111) },
+              refFunc: { func: a => (this._buttonEducationStep = a) },
+              icon: <i className="fas fa-graduation-cap" />
+            })
+          },
+          additionalOptions: {
+            func: makeAdditionalOptions({
+              title: 'Education',
+              subTitle: 'My key education points',
+              collabseRef: {
+                func: a => (this._collapsibleEducationStep = a)
+              },
+              listItems: [
+                makeCol({
+                  title: 'Secondary Education',
+                  image: { img: require('./patron.jpg') },
+                  description:
+                    'I graduated secondary school in maths and physics specialization.'
+                }),
+                makeCol({
+                  title: 'Higher Education',
+                  image: { img: require('./logotype_polibuda.jpg') },
+                  description:
+                    'Technical University of Lodz, Diploma in Computer Science'
+                }),
+                makeCol({
+                  title: 'Specialization',
+                  image: { img: require('./logo_weeia.png') },
+                  description:
+                    'Department of electronics; Institute of Applied Computer Science; Computer Science;'
+                })
+              ]
+            })
+          }
+        }),
         {
           key: 222,
           icon: (
