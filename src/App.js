@@ -8,6 +8,7 @@ import ContainerExample from './components/commonsExamples/ContainerExample';
 import CirclesItemsExample from './components/commonsExamples/CirclesItemsExample';
 import CirclesItemsVerticalExample from './components/commonsExamples/CirclesItemsVerticalExample';
 import CirclesItemsCounterExample from './components/commonsExamples/CirclesItemsCounterExample';
+import UploadImage from './components/commonsExamples/UploadImage';
 
 export default () => (
   <Layout>
@@ -32,6 +33,7 @@ export default () => (
       path="/examples/CirclesItemsCounterExample"
       component={CirclesItemsCounterExample}
     />
+    <Route path="/examples/UploadImage" component={UploadImage} />
     <Route exact path="/" component={Default} />
   </Layout>
 );

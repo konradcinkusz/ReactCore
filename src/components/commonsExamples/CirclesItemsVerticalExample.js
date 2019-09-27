@@ -3,6 +3,7 @@ import CirclesItemsVertical from '../commons/CirclesItemsVertical';
 import Collapsible from 'react-collapsible';
 import './CirclesItemsVerticalExample.css';
 import CirclesItemsCounterExample from './CirclesItemsCounterExample';
+import OnOff from '../commons/OnOff';
 
 class CirclesItemsVerticalExample extends Component {
   constructor(props) {
@@ -642,6 +643,9 @@ class CirclesItemsVerticalExample extends Component {
         </div>
         <div className="d-none d-xl-block">
           <CirclesItemsCounterExample />
+        </div>
+        <div>
+          <OnOff onChange={value => console.log('New value is:', value)} />
         </div>
         <CirclesItemsVertical entries={this.state.entries} />
       </div>
