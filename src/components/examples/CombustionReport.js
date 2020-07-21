@@ -1,11 +1,11 @@
-﻿import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { actionCreators } from '../../store/examplesReducers/CombustionReport';
-import { FormErrors } from '../commons/FormErrors';
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
-import Items from '../commons/Items';
+﻿﻿import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { actionCreators } from "../../store/examplesReducers/CombustionReport";
+import { FormErrors } from "../commons/FormErrors";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
+import Items from "../commons/Items";
 
 class CombustionReport extends Component {
   constructor(props) {
@@ -17,16 +17,16 @@ class CombustionReport extends Component {
       averageSpeed: 0,
       formErrors: { routeKilometers: 0, averageCombusiton: 0, averageSpeed: 0 },
       friendlyNames: {
-        routeKilometers: 'Pole długość trasy',
-        averageCombusiton: 'Pole średnie spalanie',
-        averageSpeed: 'Pole średnia prędkość'
+        routeKilometers: "Pole długość trasy",
+        averageCombusiton: "Pole średnie spalanie",
+        averageSpeed: "Pole średnia prędkość"
       },
-      routeKilometersValid: '',
-      averageCombusitonValid: '',
-      averageSpeedValid: '',
+      routeKilometersValid: "",
+      averageCombusitonValid: "",
+      averageSpeedValid: "",
       formValid: false,
       selectedCombustions: [],
-      selectedCarKey: ''
+      selectedCarKey: ""
     };
 
     this.addItem = this.addItem.bind(this);
@@ -36,8 +36,8 @@ class CombustionReport extends Component {
 
   addItem(e) {
     if (
-      typeof this._dropDownElement === 'undefined' ||
-      this._dropDownElement.state.selected.value === ''
+      typeof this._dropDownElement === "undefined" ||
+      this._dropDownElement.state.selected.value === ""
     ) {
       //TODO: To wystąpi w momencie, kiedy nie ustawimy value na dropdownie
       //Tu trzeba wyrzucić jakiś exception
@@ -64,15 +64,15 @@ class CombustionReport extends Component {
 
     this.props.addReport(itemToAdd);
 
-    this._inputElementRouteKilometers.value = '';
-    this._inputElementAverageCombustion.value = '';
-    this._inputElementAverageSpeed.value = '';
+    this._inputElementRouteKilometers.value = "";
+    this._inputElementAverageCombustion.value = "";
+    this._inputElementAverageSpeed.value = "";
 
-    var value = '';
+    var value = "";
 
     var innerSelectedCombustions = this.state.selectedCombustions;
 
-    var x = 'KM: {0}; średnie spalanie: {1}; średnia prędkość: {2}.';
+    var x = "KM: {0}; średnie spalanie: {1}; średnia prędkość: {2}.";
     x = x.replace(/\{0\}/g, itemToAdd.routeKilometers);
     x = x.replace(/\{1\}/g, itemToAdd.averageCombusiton);
     x = x.replace(/\{2\}/g, itemToAdd.averageSpeed);
@@ -94,7 +94,7 @@ class CombustionReport extends Component {
         ]
       },
       () => {
-        this.validateField('clean', value);
+        this.validateField("clean", value);
       }
     );
 
@@ -102,8 +102,8 @@ class CombustionReport extends Component {
   }
 
   deleteItem(item) {
-    var selectedCarKey = 'undefined';
-    if (typeof this._dropDownElement !== 'undefined') {
+    var selectedCarKey = "undefined";
+    if (typeof this._dropDownElement !== "undefined") {
       selectedCarKey = this._dropDownElement.state.selected.value;
     }
     this.setState({
@@ -121,7 +121,7 @@ class CombustionReport extends Component {
       return x.carKey === e.value;
     });
     combustions = combustions.map(function(item) {
-      var x = 'KM: {0}; średnie spalanie: {1}; średnia prędkość: {2}.';
+      var x = "KM: {0}; średnie spalanie: {1}; średnia prędkość: {2}.";
       x = x.replace(/\{0\}/g, item.routeKilometers);
       x = x.replace(/\{1\}/g, item.averageCombusiton);
       x = x.replace(/\{2\}/g, item.averageSpeed);
@@ -146,7 +146,7 @@ class CombustionReport extends Component {
       return;
     }
     const name = e.target.name;
-    const value = '';
+    const value = "";
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
@@ -167,54 +167,54 @@ class CombustionReport extends Component {
     let averageSpeedValid = this.state.averageSpeedValid;
 
     switch (fieldName) {
-      case 'routeKilometers':
+      case "routeKilometers":
         var str = new String(value);
         if (str.length === 0) {
-          routeKilometersValid = '';
-          fieldValidationErrors.routeKilometers = '';
+          routeKilometersValid = "";
+          fieldValidationErrors.routeKilometers = "";
           break;
         }
         var floatValue = parseFloat(value);
         routeKilometersValid = !isNaN(floatValue);
         fieldValidationErrors.routeKilometersValid = routeKilometersValid
-          ? ''
-          : 'może zawierać tylko liczby! (Mogą być zmiennoprzecinkowe).';
+          ? ""
+          : "może zawierać tylko liczby! (Mogą być zmiennoprzecinkowe).";
         break;
-      case 'averageCombusiton':
+      case "averageCombusiton":
         var str = new String(value);
         if (str.length === 0) {
-          averageCombusitonValid = '';
-          fieldValidationErrors.averageCombusiton = '';
+          averageCombusitonValid = "";
+          fieldValidationErrors.averageCombusiton = "";
           break;
         }
         var floatValue = parseFloat(value);
         averageCombusitonValid = !isNaN(floatValue);
         fieldValidationErrors.averageCombusiton = averageCombusitonValid
-          ? ''
-          : 'może zawierać tylko liczby! (Mogą być zmiennoprzecinkowe).';
+          ? ""
+          : "może zawierać tylko liczby! (Mogą być zmiennoprzecinkowe).";
         break;
-      case 'averageSpeed':
+      case "averageSpeed":
         var str = new String(value);
         if (str.length === 0) {
-          averageSpeedValid = '';
-          fieldValidationErrors.averageSpeed = '';
+          averageSpeedValid = "";
+          fieldValidationErrors.averageSpeed = "";
           break;
         }
         var floatValue = parseFloat(value);
         averageSpeedValid = !isNaN(floatValue);
         fieldValidationErrors.averageSpeed = averageSpeedValid
-          ? ''
-          : 'może zawierać tylko liczby! (Mogą być zmiennoprzecinkowe).';
+          ? ""
+          : "może zawierać tylko liczby! (Mogą być zmiennoprzecinkowe).";
         break;
-      case 'clean':
-        routeKilometersValid = '';
-        fieldValidationErrors.routeKilometers = '';
+      case "clean":
+        routeKilometersValid = "";
+        fieldValidationErrors.routeKilometers = "";
 
-        averageCombusitonValid = '';
-        fieldValidationErrors.averageCombusiton = '';
+        averageCombusitonValid = "";
+        fieldValidationErrors.averageCombusiton = "";
 
-        averageSpeedValid = '';
-        fieldValidationErrors.averageSpeed = '';
+        averageSpeedValid = "";
+        fieldValidationErrors.averageSpeed = "";
         break;
       default:
         break;
@@ -241,10 +241,10 @@ class CombustionReport extends Component {
   }
 
   errorFuelTypeClass(error) {
-    if (typeof error === 'string' || typeof error === 'undefined') {
-      return '';
+    if (typeof error === "string" || typeof error === "undefined") {
+      return "";
     }
-    return error ? 'is-valid' : 'is-invalid'; //Bootstrap v4
+    return error ? "is-valid" : "is-invalid"; //Bootstrap v4
   }
   // #endregion
 
@@ -260,16 +260,16 @@ class CombustionReport extends Component {
       };
     });
 
-    var defaultCarOption = carItems.length > 0 ? carItems[0] : '';
+    var defaultCarOption = carItems.length > 0 ? carItems[0] : "";
     var selectedCarKey = defaultCarOption.value;
-    if (typeof this._dropDownElement !== 'undefined') {
+    if (typeof this._dropDownElement !== "undefined") {
       selectedCarKey = this._dropDownElement.state.selected.value;
     }
     var combustions = this.props.combustionReports.filter(function(x) {
       return x.carKey === selectedCarKey;
     });
     combustions = combustions.map(function(item) {
-      var x = 'KM: {0}; średnie spalanie: {1}; średnia prędkość: {2}.';
+      var x = "KM: {0}; średnie spalanie: {1}; średnia prędkość: {2}.";
       x = x.replace(/\{0\}/g, item.routeKilometers);
       x = x.replace(/\{1\}/g, item.averageCombusiton);
       x = x.replace(/\{2\}/g, item.averageSpeed);
@@ -294,9 +294,9 @@ class CombustionReport extends Component {
         label: value.carType
       };
     });
-    var defaultCarOption = carItems.length > 0 ? carItems[0] : '';
+    var defaultCarOption = carItems.length > 0 ? carItems[0] : "";
     var selectedCarKey = this.state.selectedCarKey;
-    if (typeof this._dropDownElement !== 'undefined') {
+    if (typeof this._dropDownElement !== "undefined") {
       var carIdx = carItems
         .map(function(e) {
           return e.value;
@@ -319,8 +319,8 @@ class CombustionReport extends Component {
               onChange={this.loadReports}
             />
           </div>
-          <div className="col-md-4"></div>
-          <div className="col-md-4"></div>
+          <div className="col-md-4" />
+          <div className="col-md-4" />
         </div>
         <h2>Wprowadź raport spalania</h2>
         <div>

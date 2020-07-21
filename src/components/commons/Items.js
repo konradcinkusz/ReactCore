@@ -1,8 +1,8 @@
-﻿import React, { Component } from 'react';
-import FlipMove from 'react-flip-move';
-import { isEqual } from 'lodash';
-import './Commons.css';
-import './Items.css';
+﻿﻿import React, { Component } from "react";
+import FlipMove from "react-flip-move";
+import { isEqual } from "lodash";
+import "./Commons.css";
+import "./Items.css";
 
 class Items extends Component {
   constructor(props) {

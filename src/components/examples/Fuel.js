@@ -1,27 +1,27 @@
-﻿import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Items from '../commons/Items';
-import './ListMain.css';
-import { actionCreators } from '../store/Fuel';
-import { FormErrors } from '../commons/FormErrors';
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
+﻿﻿import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import Items from "../commons/Items";
+import "./ListMain.css";
+import { actionCreators } from "../store/Fuel";
+import { FormErrors } from "../commons/FormErrors";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 class Fuel extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      fuelType: '',
+      fuelType: "",
       fuelPrice: 0,
-      formErrors: { fuelType: '', fuelPrice: '' },
+      formErrors: { fuelType: "", fuelPrice: "" },
       friendlyNames: {
-        fuelType: 'Pole typ paliwa',
-        fuelPrice: 'Pole cena paliwa'
+        fuelType: "Pole typ paliwa",
+        fuelPrice: "Pole cena paliwa"
       },
-      fuelTypeValid: '',
-      fuelPriceValid: '',
+      fuelTypeValid: "",
+      fuelPriceValid: "",
       formValid: false
     };
 
@@ -37,10 +37,10 @@ class Fuel extends Component {
 
     this.props.addFuel(itemToAdd);
 
-    this._inputElementName.value = '';
-    this._inputElementPrice.value = '';
+    this._inputElementName.value = "";
+    this._inputElementPrice.value = "";
 
-    var value = '';
+    var value = "";
 
     this.setState(
       {
@@ -48,7 +48,7 @@ class Fuel extends Component {
         fuelPrice: value
       },
       () => {
-        this.validateField('clean', value);
+        this.validateField("clean", value);
       }
     );
 
@@ -56,7 +56,7 @@ class Fuel extends Component {
   }
 
   // #region Funkcje walidacyjne
-  setEventState(e, value = '') {
+  setEventState(e, value = "") {
     const name = e.target.name;
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
@@ -80,18 +80,18 @@ class Fuel extends Component {
     let fuelPriceValid = this.state.fuelPriceValid;
 
     switch (fieldName) {
-      case 'fuelType':
+      case "fuelType":
         var str = new String(value);
         fuelTypeValid = str.length > 3;
         var isempty = str.length === 0;
         if (isempty) {
-          fuelTypeValid = '';
-          fieldValidationErrors.fuelType = '';
+          fuelTypeValid = "";
+          fieldValidationErrors.fuelType = "";
           break;
         }
         fieldValidationErrors.fuelType = fuelTypeValid
-          ? ''
-          : 'jest za krótkie (przynajmniej 3 znaki)!';
+          ? ""
+          : "jest za krótkie (przynajmniej 3 znaki)!";
         if (
           this.props.fuelItems.fuels.filter(
             data => data.fuelType.toLowerCase() === value.toLowerCase()
@@ -99,26 +99,26 @@ class Fuel extends Component {
         ) {
           fuelTypeValid = false;
           fieldValidationErrors.fuelType =
-            'zawiera paliwo, które już zostało dodane, wprowadź inna nazwę.';
+            "zawiera paliwo, które już zostało dodane, wprowadź inna nazwę.";
         }
         break;
-      case 'fuelPrice':
+      case "fuelPrice":
         var str = new String(value);
         if (str.length === 0) {
-          fuelPriceValid = '';
-          fieldValidationErrors.fuelPrice = '';
+          fuelPriceValid = "";
+          fieldValidationErrors.fuelPrice = "";
           break;
         }
         fuelPriceValid = !isNaN(parseFloat(value));
         fieldValidationErrors.fuelPrice = fuelPriceValid
-          ? ''
-          : 'może zawierać tylko liczby! (Mogą być zmiennoprzecinkowe).';
+          ? ""
+          : "może zawierać tylko liczby! (Mogą być zmiennoprzecinkowe).";
         break;
-      case 'clean':
-        fuelTypeValid = '';
-        fieldValidationErrors.fuelType = '';
-        fuelPriceValid = '';
-        fieldValidationErrors.fuelPrice = '';
+      case "clean":
+        fuelTypeValid = "";
+        fieldValidationErrors.fuelType = "";
+        fuelPriceValid = "";
+        fieldValidationErrors.fuelPrice = "";
         break;
       default:
         break;
@@ -141,10 +141,10 @@ class Fuel extends Component {
   }
 
   errorFuelTypeClass(error) {
-    if (typeof error === 'string' || typeof error === 'undefined') {
-      return '';
+    if (typeof error === "string" || typeof error === "undefined") {
+      return "";
     }
-    return error ? 'is-valid' : 'is-invalid'; //Bootstrap v4
+    return error ? "is-valid" : "is-invalid"; //Bootstrap v4
   }
   // #endregion
 
@@ -152,7 +152,7 @@ class Fuel extends Component {
     var fuelItems = this.props.fuelItems.fuels.map(function(value) {
       return {
         value: value.key,
-        label: value.fuelType + ' ' + value.fuelPrice
+        label: value.fuelType + " " + value.fuelPrice
       };
     });
 

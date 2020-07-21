@@ -27,7 +27,7 @@
 }
 
 .circleListV li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 30px;
   top: 30px;
@@ -43,7 +43,7 @@
   border-width: 2px 0 0;
 }
 .circleListV li::after {
-  content: '';
+  content: "";
   /* content: counter(stepCount); */
   position: absolute;
   left: 0;

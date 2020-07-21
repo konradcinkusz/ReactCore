@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Collapse,
   Container,
@@ -7,9 +7,9 @@ import {
   NavbarToggler,
   NavItem,
   NavLink
-} from 'reactstrap';
-import { Link } from 'react-router-dom';
-import './NavMenu.css';
+} from "reactstrap";
+import { Link } from "react-router-dom";
+import "./NavMenu.css";
 
 export default class NavMenu extends React.Component {
   constructor(props) {
@@ -34,9 +34,16 @@ export default class NavMenu extends React.Component {
         >
           <Container>
             <NavbarBrand tag={Link} to="/">
-              ReactCore App (click: Deafult)
+              Konrad Cinkusz ReactCore Portfolio App
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggle} className="mr-2" />
+            <Collapse
+              className="d-sm-inline-flex flex-sm-row-reverse"
+              isOpen={this.state.isOpen}
+              navbar
+            >
+            </Collapse>
+            {/* https://github.com/konradcinkusz/ReactCore/blob/master/src/components/commonsExamples/CirclesItemsVerticalExample.js */}
+            {/* <NavbarToggler onClick={this.toggle} className="mr-2" />
             <Collapse
               className="d-sm-inline-flex flex-sm-row-reverse"
               isOpen={this.state.isOpen}
@@ -112,7 +119,7 @@ export default class NavMenu extends React.Component {
                   </NavLink>
                 </NavItem>
               </ul>
-            </Collapse>
+            </Collapse>*/}
           </Container>
         </Navbar>
       </header>

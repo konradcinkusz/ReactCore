@@ -1,5 +1,5 @@
-﻿const addReportType = 'REPORT_ADD';
-const removeReportType = 'REPORT_REMOVE';
+﻿﻿const addReportType = "REPORT_ADD";
+const removeReportType = "REPORT_REMOVE";
 
 export const actionCreators = {
   addReport: report => ({

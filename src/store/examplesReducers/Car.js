@@ -1,6 +1,6 @@
-﻿const addCarType = 'CAR_ADD';
-const removeCarType = 'CAR_REMOVE';
-const updateCarPoly = 'CAR_UPDATE_POLYNOMIAL';
+﻿﻿const addCarType = "CAR_ADD";
+const removeCarType = "CAR_REMOVE";
+const updateCarPoly = "CAR_UPDATE_POLYNOMIAL";
 
 export const actionCreators = {
   addCar: car => ({
@@ -28,21 +28,21 @@ export const actionCreators = {
 export const reducer = (state, action) => {
   state = state || [
     {
-      carType: 'Mazda',
+      carType: "Mazda",
       carFuelKey: 1111,
       carAverageCatalogueCityCombusiton: 5.4,
       carAverageCatalogueRouteCombusiton: 7.7,
-      combustionVelocityPoly: 'undefined',
-      combustionRoutePoly: 'undefined',
+      combustionVelocityPoly: "undefined",
+      combustionRoutePoly: "undefined",
       key: 2222
     },
     {
-      carType: 'Toyota',
+      carType: "Toyota",
       carFuelKey: 1111,
       carAverageCatalogueCityCombusiton: 8.4,
       carAverageCatalogueRouteCombusiton: 9.7,
-      combustionVelocityPoly: 'undefined',
-      combustionRoutePoly: 'undefined',
+      combustionVelocityPoly: "undefined",
+      combustionRoutePoly: "undefined",
       key: 9999
     }
   ];

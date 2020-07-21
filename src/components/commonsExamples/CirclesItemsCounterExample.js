@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import CirclesItems from '../commons/CirclesItems';
-import AnimatedNumber from 'react-animated-number';
+import React, { Component } from "react";
+import CirclesItems from "../commons/CirclesItems";
+import AnimatedNumber from "react-animated-number";
 
 class CirclesItemsCounterExample extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class CirclesItemsCounterExample extends Component {
           key: 111,
           icon: (
             <AnimatedNumber
-              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: '' })}
+              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: "" })}
               stepPrecision={0}
               value={2}
               duration={3000}
@@ -28,7 +28,7 @@ class CirclesItemsCounterExample extends Component {
           key: 222,
           icon: (
             <AnimatedNumber
-              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: '' })}
+              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: "" })}
               stepPrecision={0}
               value={5}
               duration={3000}
@@ -44,7 +44,7 @@ class CirclesItemsCounterExample extends Component {
           key: 333,
           icon: (
             <AnimatedNumber
-              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: '' })}
+              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: "" })}
               stepPrecision={0}
               value={10}
               duration={3000}
@@ -61,7 +61,7 @@ class CirclesItemsCounterExample extends Component {
           key: 444,
           icon: (
             <AnimatedNumber
-              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: '' })}
+              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: "" })}
               stepPrecision={0}
               value={4}
               duration={3000}
@@ -73,7 +73,7 @@ class CirclesItemsCounterExample extends Component {
           key: 555,
           icon: (
             <AnimatedNumber
-              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: '' })}
+              frameStyle={perc => (perc === 100 ? {} : { backgroundColor: "" })}
               stepPrecision={0}
               value={10}
               duration={3000}
@@ -88,10 +88,10 @@ class CirclesItemsCounterExample extends Component {
         }
       ],
       style: {
-        color: 'red',
-        backgroundColor: '#000',
-        width: '100%',
-        fontSize: '2em'
+        color: "red",
+        backgroundColor: "#000",
+        width: "100%",
+        fontSize: "2em"
       }
     };
   }

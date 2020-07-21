@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import FlipMove from 'react-flip-move';
-import { isEqual } from 'lodash';
-import './CirclesItemsVertical.css';
+import React, { Component } from "react";
+import FlipMove from "react-flip-move";
+import { isEqual } from "lodash";
+import "./CirclesItemsVertical.css";
 
 /*
  *https://codepen.io/ccondrup/pen/bqbGWB?editors=1100
@@ -15,7 +15,7 @@ class CirclesItemsVertical extends Component {
   }
 
   createTask(item) {
-    var isActive = 'passed';
+    var isActive = "passed";
     // if (item.key === 333) {
     //   isActive = 'current';
     // } else if (item.key < 333) {
